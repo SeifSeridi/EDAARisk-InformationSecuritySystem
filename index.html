@@ -296,6 +296,119 @@
   @keyframes slidein{from{transform:translateX(20px);opacity:0}to{transform:translateX(0);opacity:1}}
   [dir="rtl"] @keyframes slidein{from{transform:translateX(-20px);opacity:0}}
 
+  /* ================= RISK DETAILS — BUSINESS PROCESS FLOW ================= */
+  .btn[disabled]{opacity:.4;pointer-events:none;cursor:not-allowed}
+  .rd-header .ph-txt p{color:var(--ink-3)}
+  .rd-header .eyebrow .ref{font-size:11px}
+  .rd-header .eyebrow .status{margin-inline-start:2px}
+
+  .bpf{display:flex;align-items:flex-start;gap:0;overflow-x:auto;padding:6px 2px 2px}
+  .bpf-stage{display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;min-width:96px;
+    position:relative;padding:4px 6px;border-radius:10px;transition:background .18s}
+  .bpf-stage[data-act]{cursor:pointer}
+  .bpf-stage[data-act]:hover{background:var(--surface-2)}
+  .bpf-stage[data-act]:hover .bpf-node{transform:translateY(-2px)}
+  .bpf-node{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;flex:none;
+    transition:transform .18s,box-shadow .18s,background .18s,color .18s;background:var(--surface-3);color:var(--ink-3)}
+  .bpf-label{font-size:12px;font-weight:650;color:var(--ink-3);text-align:center;white-space:nowrap}
+  .bpf-stage.done .bpf-node{background:var(--good);color:#fff}
+  .bpf-stage.done .bpf-label{color:var(--ink-2)}
+  .bpf-stage.current .bpf-node{background:var(--teal);color:#fff;box-shadow:0 0 0 6px var(--teal-050),var(--shadow-lg);
+    animation:bpfPulse 2.2s ease-in-out infinite}
+  .bpf-stage.current .bpf-label{color:var(--teal-600);font-weight:800}
+  .bpf-stage.future .bpf-node{background:var(--surface-3);color:var(--ink-3);opacity:.55}
+  .bpf-stage.future .bpf-label{opacity:.55}
+  @keyframes bpfPulse{0%,100%{box-shadow:0 0 0 6px var(--teal-050),var(--shadow-lg)}50%{box-shadow:0 0 0 10px color-mix(in srgb,var(--teal) 12%,transparent),var(--shadow-lg)}}
+  .bpf-connector{flex:none;width:clamp(18px,4vw,56px);height:3px;border-radius:3px;background:var(--line-strong);
+    margin-top:23px;position:relative;overflow:hidden}
+  .bpf-connector.filled{background:var(--good)}
+  .bpf-connector.filled::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
+    animation:bpfShine 2.6s linear infinite}
+  @keyframes bpfShine{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+  .bpf-tip{display:none}
+  .bpf-controls{display:flex;justify-content:flex-end;gap:9px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+
+  .rd-progress{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:16px}
+  .rd-plabel{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:700;margin-bottom:5px}
+  .rd-pvalue{font-size:14px;font-weight:650;color:var(--ink)}
+  .rd-progressbar{height:6px;border-radius:6px;background:var(--surface-3);margin-top:16px;overflow:hidden}
+  .rd-progressfill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--teal),var(--good));
+    transition:width .5s cubic-bezier(.4,0,.2,1)}
+
+  .rd-grid{display:grid;grid-template-columns:1fr 300px;gap:16px;align-items:start}
+  .rd-main{display:flex;flex-direction:column;gap:16px}
+  .rd-side{position:sticky;top:14px;display:flex;flex-direction:column;gap:16px}
+  @media (max-width:1080px){ .rd-grid{grid-template-columns:1fr} .rd-side{position:static} }
+
+  .rd-si{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}
+  .rd-si:last-child{border-bottom:0}
+  .rd-si .k{font-size:12px;color:var(--ink-3)}
+  .rd-si .v{font-size:12.5px;font-weight:650;color:var(--ink);text-align:end}
+
+  .stage-fade{animation:stageFade .32s cubic-bezier(.4,0,.2,1)}
+  @keyframes stageFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+  .rd-matrix{display:inline-flex;flex-direction:column;gap:3px}
+  .rd-mrow{display:flex;gap:3px}
+  .mcell{width:30px;height:26px;border-radius:5px;display:grid;place-items:center;font-size:11px;font-weight:700;
+    color:#fff;opacity:.55}
+  .mcell.active{opacity:1;box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--ink);transform:scale(1.12);z-index:1}
+  .mcell.b-Low{background:var(--low)} .mcell.b-Medium{background:var(--med)}
+  .mcell.b-High{background:var(--high)} .mcell.b-Critical{background:var(--crit)}
+
+  .rd-impacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+  .rd-impact{border:1px solid var(--line);border-radius:9px;padding:10px 12px}
+  .rd-impact .k{font-size:11px;color:var(--ink-3);font-weight:650;text-transform:uppercase;letter-spacing:.04em}
+  .rd-impact .v{margin-top:4px}
+
+  .rd-action{display:flex;align-items:flex-start;gap:11px;padding:11px 0;border-bottom:1px solid var(--line)}
+  .rd-action:last-child{border-bottom:0}
+  .rd-action .ck{width:22px;height:22px;border-radius:6px;flex:none;display:grid;place-items:center;margin-top:1px;
+    background:var(--surface-3);color:var(--ink-3)}
+  .rd-action.done .ck{background:var(--good);color:#fff}
+  .rd-action.progress .ck{background:var(--teal);color:#fff}
+  .rd-action .at{font-size:13px;font-weight:600}
+  .rd-action .am{font-size:11.5px;color:var(--ink-3);margin-top:3px}
+
+  .rd-timeline{position:relative;padding-inline-start:26px}
+  .rd-tnode{position:relative;padding-bottom:20px}
+  .rd-tnode:last-child{padding-bottom:0}
+  .rd-tnode::before{content:"";position:absolute;inset-inline-start:-26px;top:2px;width:12px;height:12px;border-radius:50%;
+    background:var(--good);box-shadow:0 0 0 3px var(--low-bg)}
+  .rd-tnode.pending::before{background:var(--surface-3);box-shadow:0 0 0 3px var(--surface-2)}
+  .rd-tnode::after{content:"";position:absolute;inset-inline-start:-21px;top:14px;bottom:0;width:2px;background:var(--line)}
+  .rd-tnode:last-child::after{display:none}
+  .rd-tnode .tt-title{font-size:13px;font-weight:650}
+  .rd-tnode .tt-date{font-size:11.5px;color:var(--ink-3);margin-top:2px}
+
+  .rd-activity{display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--line)}
+  .rd-activity:last-child{border-bottom:0}
+  .rd-activity .aa{width:30px;height:30px;border-radius:50%;flex:none;display:grid;place-items:center;
+    background:var(--teal-050);color:var(--teal)}
+  .rd-activity .ax b{font-size:12.5px}
+  .rd-activity .ax p{margin:2px 0 0;font-size:12px;color:var(--ink-2)}
+  .rd-activity .ax span{font-size:11px;color:var(--ink-3)}
+
+  .rd-attach{display:flex;align-items:center;gap:11px;padding:10px 0;border-bottom:1px solid var(--line)}
+  .rd-attach:last-child{border-bottom:0}
+  .rd-attach .fi{width:34px;height:34px;border-radius:8px;background:var(--surface-3);color:var(--teal);
+    display:grid;place-items:center;flex:none}
+  .rd-attach .fn{font-size:12.5px;font-weight:650}
+  .rd-attach .fm{font-size:11px;color:var(--ink-3);margin-top:2px}
+
+  .rd-comment{display:flex;gap:11px;padding:13px 0;border-bottom:1px solid var(--line)}
+  .rd-comment:last-child{border-bottom:0}
+  .rd-comment .cx{flex:1;min-width:0}
+  .rd-comment .ch2{display:flex;align-items:baseline;gap:8px}
+  .rd-comment .ch2 b{font-size:13px}
+  .rd-comment .ch2 span{font-size:11px;color:var(--ink-3)}
+  .rd-comment .cb2{font-size:13px;color:var(--ink);margin-top:4px;line-height:1.5}
+  .rd-comment .cb2 .mention{color:var(--teal);font-weight:650}
+  .rd-comment .catt{display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:11.5px;color:var(--teal);
+    background:var(--teal-050);padding:4px 9px;border-radius:6px}
+  .rd-composer{display:flex;gap:11px;margin-top:6px}
+  .rd-composer textarea{flex:1}
+
   /* misc layout helpers */
   .two-col{display:grid;grid-template-columns:1.6fr 1fr;gap:16px}
   .three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -377,6 +490,9 @@
     .kpi .kv{font-size:25px}
     .barrow{grid-template-columns:110px 1fr 38px}
     .present-fab span{display:none}
+    .bpf-node{width:38px;height:38px}
+    .bpf-label{font-size:10.5px}
+    .bpf-connector{margin-top:19px}
   }
   @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
@@ -537,33 +653,64 @@ let L03=[
 ];
 /* L04 Operational Risk Register (by department) */
 let L04=[
-  {ref:'ORR-IT-014',dept:'IT',desc:'CSD connectivity gateway lacks automated failover',ar:'بوابة الاتصال تفتقر إلى تجاوز الفشل الآلي',cat:'ISC',cause:'No redundant appliance provisioned',l:2,i:5,owner:'Aisha Al-Sulaiti',mit:'Procure and configure active-passive gateway pair; quarterly failover test.',due:'2026-08-15',rl:1,ri:5,status:'In Treatment',date:'2026-07-06'},
-  {ref:'ORR-IT-013',dept:'IT',desc:'Privileged access review overdue',ar:'مراجعة الوصول المتميز متأخرة',cat:'CYB',cause:'Manual quarterly review not automated',l:3,i:4,owner:'Aisha Al-Sulaiti',mit:'Implement access-recertification workflow; monthly PIM review.',due:'2026-07-05',rl:2,ri:4,status:'In Treatment',date:'2026-06-10'},
-  {ref:'ORR-IT-012',dept:'IT',desc:'Legacy market-data terminal unpatched',ar:'محطة بيانات قديمة غير محدثة',cat:'CYB',cause:'Vendor firmware lifecycle',l:3,i:5,owner:'Aisha Al-Sulaiti',mit:'Isolate on segmented VLAN; vendor upgrade by Q3.',due:'2026-09-01',rl:2,ri:4,status:'Open',date:'2026-07-10'},
-  {ref:'ORR-IT-011',dept:'IT',desc:'Backup restore not tested this half',ar:'عدم اختبار استعادة النسخ الاحتياطي',cat:'OPR',cause:'Scheduling conflict with upgrades',l:2,i:4,owner:'Yousef Rahman',mit:'Run quarterly restore drill; document RTO/RPO.',due:'2026-07-31',rl:1,ri:4,status:'Monitoring',date:'2026-05-20'},
-  {ref:'ORR-CUS-021',dept:'CUS',desc:'Key-person dependency in corporate actions',ar:'الاعتماد على شخص رئيسي في إجراءات الشركات',cat:'OPR',cause:'Single trained operator',l:4,i:3,owner:'Noora Al-Kuwari',mit:'Cross-train two additional officers; document runbook.',due:'2026-08-30',rl:2,ri:3,status:'In Treatment',date:'2026-06-22'},
-  {ref:'ORR-CUS-020',dept:'CUS',desc:'Manual reconciliation exceeds cut-off',ar:'المطابقة اليدوية تتجاوز الموعد',cat:'OPR',cause:'Volume growth outpaced process',l:4,i:4,owner:'Noora Al-Kuwari',mit:'Automate reconciliation matching; add pre-cutoff checkpoint.',due:'2026-08-10',rl:2,ri:3,status:'Open',date:'2026-07-13'},
-  {ref:'ORR-CUS-019',dept:'CUS',desc:'Investor statement address data stale',ar:'بيانات عناوين المستثمرين قديمة',cat:'CMP',cause:'No periodic data-quality run',l:3,i:3,owner:'Mona Al-Hajri',mit:'Quarterly address verification; suppress on bounce.',due:'2026-07-12',rl:2,ri:2,status:'In Treatment',date:'2026-06-15'},
-  {ref:'ORR-FIN-008',dept:'FIN',desc:'Fee schedule maintained in spreadsheets',ar:'جداول الرسوم على جداول بيانات',cat:'FNC',cause:'No system-of-record for fees',l:3,i:3,owner:'Ahmed Al-Suwaidi',mit:'Move fee logic to controlled list with approval.',due:'2026-09-15',rl:2,ri:2,status:'Open',date:'2026-07-02'},
-  {ref:'ORR-FIN-007',dept:'FIN',desc:'Segregation of duties gap in payments',ar:'فجوة الفصل بين المهام في المدفوعات',cat:'FNC',cause:'Small team, overlapping roles',l:2,i:4,owner:'Ahmed Al-Suwaidi',mit:'Enforce maker-checker; dual authorization above threshold.',due:'2026-08-05',rl:1,ri:4,status:'Monitoring',date:'2026-05-28'},
-  {ref:'ORR-LEG-005',dept:'LEG',desc:'Regulatory reporting template drift',ar:'انحراف قوالب التقارير التنظيمية',cat:'CMP',cause:'Regulator updated schema',l:3,i:4,owner:'Sara Al-Marri',mit:'Align extract columns; add validation before submission.',due:'2026-07-14',rl:1,ri:4,status:'In Treatment',date:'2026-06-28'},
-  {ref:'ORR-LEG-004',dept:'LEG',desc:'Contract renewal tracking manual',ar:'تتبع تجديد العقود يدوي',cat:'LGL',cause:'No renewal calendar',l:2,i:3,owner:'Sara Al-Marri',mit:'Maintain renewal register with reminders.',due:'2026-09-30',rl:1,ri:3,status:'Open',date:'2026-06-05'},
-  {ref:'ORR-OPS-009',dept:'OPS',desc:'Clean-desk policy adherence low',ar:'ضعف الالتزام بسياسة المكتب النظيف',cat:'ISC',cause:'Awareness gap',l:3,i:2,owner:'Hassan Al-Ansari',mit:'Awareness campaign; spot checks.',due:'2026-07-20',rl:2,ri:2,status:'Monitoring',date:'2026-07-04'},
-  {ref:'ORR-OPS-008',dept:'OPS',desc:'Duplicate posting control gap',ar:'فجوة ضبط ازدواج القيود',cat:'OPR',cause:'Batch retry without idempotency',l:3,i:4,owner:'Hassan Al-Ansari',mit:'Add idempotency key; reconciliation alert.',due:'2026-07-25',rl:2,ri:3,status:'In Treatment',date:'2026-06-30'},
-  {ref:'ORR-OPS-007',dept:'OPS',desc:'Business continuity plan not exercised',ar:'خطة استمرارية العمل غير مُختبرة',cat:'STR',cause:'No annual BCP drill scheduled',l:2,i:5,owner:'Hassan Al-Ansari',mit:'Run tabletop BCP exercise; update call tree.',due:'2026-10-01',rl:1,ri:4,status:'Open',date:'2026-06-01'},
+  {ref:'ORR-IT-014',dept:'IT',desc:'CSD connectivity gateway lacks automated failover',ar:'بوابة الاتصال تفتقر إلى تجاوز الفشل الآلي',cat:'ISC',cause:'No redundant appliance provisioned',l:2,i:5,owner:'Aisha Al-Sulaiti',mit:'Procure and configure active-passive gateway pair; quarterly failover test.',due:'2026-08-15',rl:1,ri:5,status:'In Treatment',date:'2026-07-06',stage:'mitigate'},
+  {ref:'ORR-IT-013',dept:'IT',desc:'Privileged access review overdue',ar:'مراجعة الوصول المتميز متأخرة',cat:'CYB',cause:'Manual quarterly review not automated',l:3,i:4,owner:'Aisha Al-Sulaiti',mit:'Implement access-recertification workflow; monthly PIM review.',due:'2026-07-05',rl:2,ri:4,status:'In Treatment',date:'2026-06-10',stage:'mitigate'},
+  {ref:'ORR-IT-012',dept:'IT',desc:'Legacy market-data terminal unpatched',ar:'محطة بيانات قديمة غير محدثة',cat:'CYB',cause:'Vendor firmware lifecycle',l:3,i:5,owner:'Aisha Al-Sulaiti',mit:'Isolate on segmented VLAN; vendor upgrade by Q3.',due:'2026-09-01',rl:2,ri:4,status:'Open',date:'2026-07-10',stage:'assess'},
+  {ref:'ORR-IT-011',dept:'IT',desc:'Backup restore not tested this half',ar:'عدم اختبار استعادة النسخ الاحتياطي',cat:'OPR',cause:'Scheduling conflict with upgrades',l:2,i:4,owner:'Yousef Rahman',mit:'Run quarterly restore drill; document RTO/RPO.',due:'2026-07-31',rl:1,ri:4,status:'Monitoring',date:'2026-05-20',stage:'monitor'},
+  {ref:'ORR-CUS-021',dept:'CUS',desc:'Key-person dependency in corporate actions',ar:'الاعتماد على شخص رئيسي في إجراءات الشركات',cat:'OPR',cause:'Single trained operator',l:4,i:3,owner:'Noora Al-Kuwari',mit:'Cross-train two additional officers; document runbook.',due:'2026-08-30',rl:2,ri:3,status:'In Treatment',date:'2026-06-22',stage:'mitigate'},
+  {ref:'ORR-CUS-020',dept:'CUS',desc:'Manual reconciliation exceeds cut-off',ar:'المطابقة اليدوية تتجاوز الموعد',cat:'OPR',cause:'Volume growth outpaced process',l:4,i:4,owner:'Noora Al-Kuwari',mit:'Automate reconciliation matching; add pre-cutoff checkpoint.',due:'2026-08-10',rl:2,ri:3,status:'Open',date:'2026-07-13',stage:'identify'},
+  {ref:'ORR-CUS-019',dept:'CUS',desc:'Investor statement address data stale',ar:'بيانات عناوين المستثمرين قديمة',cat:'CMP',cause:'No periodic data-quality run',l:3,i:3,owner:'Mona Al-Hajri',mit:'Quarterly address verification; suppress on bounce.',due:'2026-07-12',rl:2,ri:2,status:'In Treatment',date:'2026-06-15',stage:'mitigate'},
+  {ref:'ORR-FIN-008',dept:'FIN',desc:'Fee schedule maintained in spreadsheets',ar:'جداول الرسوم على جداول بيانات',cat:'FNC',cause:'No system-of-record for fees',l:3,i:3,owner:'Ahmed Al-Suwaidi',mit:'Move fee logic to controlled list with approval.',due:'2026-09-15',rl:2,ri:2,status:'Open',date:'2026-07-02',stage:'assess'},
+  {ref:'ORR-FIN-007',dept:'FIN',desc:'Segregation of duties gap in payments',ar:'فجوة الفصل بين المهام في المدفوعات',cat:'FNC',cause:'Small team, overlapping roles',l:2,i:4,owner:'Ahmed Al-Suwaidi',mit:'Enforce maker-checker; dual authorization above threshold.',due:'2026-08-05',rl:1,ri:4,status:'Monitoring',date:'2026-05-28',stage:'monitor'},
+  {ref:'ORR-LEG-005',dept:'LEG',desc:'Regulatory reporting template drift',ar:'انحراف قوالب التقارير التنظيمية',cat:'CMP',cause:'Regulator updated schema',l:3,i:4,owner:'Sara Al-Marri',mit:'Align extract columns; add validation before submission.',due:'2026-07-14',rl:1,ri:4,status:'In Treatment',date:'2026-06-28',stage:'mitigate'},
+  {ref:'ORR-LEG-004',dept:'LEG',desc:'Contract renewal tracking manual',ar:'تتبع تجديد العقود يدوي',cat:'LGL',cause:'No renewal calendar',l:2,i:3,owner:'Sara Al-Marri',mit:'Maintain renewal register with reminders.',due:'2026-09-30',rl:1,ri:3,status:'Open',date:'2026-06-05',stage:'identify'},
+  {ref:'ORR-OPS-009',dept:'OPS',desc:'Clean-desk policy adherence low',ar:'ضعف الالتزام بسياسة المكتب النظيف',cat:'ISC',cause:'Awareness gap',l:3,i:2,owner:'Hassan Al-Ansari',mit:'Awareness campaign; spot checks.',due:'2026-07-14',rl:1,ri:1,status:'Closed',date:'2026-06-01',stage:'close'},
+  {ref:'ORR-OPS-008',dept:'OPS',desc:'Duplicate posting control gap',ar:'فجوة ضبط ازدواج القيود',cat:'OPR',cause:'Batch retry without idempotency',l:3,i:4,owner:'Hassan Al-Ansari',mit:'Add idempotency key; reconciliation alert.',due:'2026-07-25',rl:2,ri:3,status:'In Treatment',date:'2026-06-30',stage:'mitigate'},
+  {ref:'ORR-OPS-007',dept:'OPS',desc:'Business continuity plan not exercised',ar:'خطة استمرارية العمل غير مُختبرة',cat:'STR',cause:'No annual BCP drill scheduled',l:2,i:5,owner:'Hassan Al-Ansari',mit:'Run tabletop BCP exercise; update call tree.',due:'2026-10-01',rl:1,ri:4,status:'Open',date:'2026-06-08',stage:'assess'},
 ];
 /* L05 Enterprise Risk Register */
 let L05=[
-  {ref:'ENR-2026-005',desc:'Concentration risk in single connectivity gateway',ar:'تركّز المخاطر في بوابة اتصال وحيدة',cat:'ISC',l:2,i:5,owner:'Fatima Al-Emadi',obj:'Operational Resilience',srcType:'Operational Risk',srcRef:'ORR-IT-014',mit:'Enterprise resilience programme; board-tracked.',status:'In Treatment',date:'2026-07-07'},
-  {ref:'ENR-2026-004',desc:'Cyber intrusion via privileged access',ar:'اختراق سيبراني عبر الوصول المتميز',cat:'CYB',l:3,i:5,owner:'Fatima Al-Emadi',obj:'Trust & Market Integrity',srcType:'Incident',srcRef:'INC-2026-0005',mit:'Zero-trust roadmap; PIM enforcement; SOC monitoring.',status:'In Treatment',date:'2026-07-11'},
-  {ref:'ENR-2026-003',desc:'Regulatory non-compliance in reporting',ar:'عدم الامتثال التنظيمي في التقارير',cat:'CMP',l:3,i:4,owner:'Fatima Al-Emadi',obj:'Regulatory Standing',srcType:'Emerging Risk',srcRef:'ERR-2026-0003',mit:'Reporting governance; pre-submission validation.',status:'Open',date:'2026-06-29'},
-  {ref:'ENR-2026-002',desc:'Settlement continuity — key-person & process',ar:'استمرارية التسوية — الأفراد والعمليات',cat:'OPR',l:4,i:4,owner:'Fatima Al-Emadi',obj:'Operational Resilience',srcType:'Emerging Risk',srcRef:'ERR-2026-0002',mit:'Cross-training; reconciliation automation.',status:'In Treatment',date:'2026-06-23'},
-  {ref:'ENR-2026-001',desc:'Data-privacy exposure in investor communications',ar:'تعرض خصوصية البيانات في مراسلات المستثمرين',cat:'CMP',l:3,i:4,owner:'Fatima Al-Emadi',obj:'Trust & Market Integrity',srcType:'Incident',srcRef:'INC-2026-0004',mit:'Data-quality controls; privacy awareness.',status:'Monitoring',date:'2026-07-08'},
+  {ref:'ENR-2026-005',desc:'Concentration risk in single connectivity gateway',ar:'تركّز المخاطر في بوابة اتصال وحيدة',cat:'ISC',l:2,i:5,owner:'Fatima Al-Emadi',obj:'Operational Resilience',srcType:'Operational Risk',srcRef:'ORR-IT-014',mit:'Enterprise resilience programme; board-tracked.',status:'In Treatment',date:'2026-07-07',due:'2026-09-30',stage:'mitigate'},
+  {ref:'ENR-2026-004',desc:'Cyber intrusion via privileged access',ar:'اختراق سيبراني عبر الوصول المتميز',cat:'CYB',l:3,i:5,owner:'Fatima Al-Emadi',obj:'Trust & Market Integrity',srcType:'Incident',srcRef:'INC-2026-0005',mit:'Zero-trust roadmap; PIM enforcement; SOC monitoring.',status:'In Treatment',date:'2026-07-11',due:'2026-08-31',stage:'mitigate'},
+  {ref:'ENR-2026-003',desc:'Regulatory non-compliance in reporting',ar:'عدم الامتثال التنظيمي في التقارير',cat:'CMP',l:3,i:4,owner:'Fatima Al-Emadi',obj:'Regulatory Standing',srcType:'Emerging Risk',srcRef:'ERR-2026-0003',mit:'Reporting governance; pre-submission validation.',status:'Open',date:'2026-06-29',due:'2026-08-15',stage:'assess'},
+  {ref:'ENR-2026-002',desc:'Settlement continuity — key-person & process',ar:'استمرارية التسوية — الأفراد والعمليات',cat:'OPR',l:4,i:4,owner:'Fatima Al-Emadi',obj:'Operational Resilience',srcType:'Emerging Risk',srcRef:'ERR-2026-0002',mit:'Cross-training; reconciliation automation.',status:'In Treatment',date:'2026-06-23',due:'2026-08-20',stage:'mitigate'},
+  {ref:'ENR-2026-001',desc:'Data-privacy exposure in investor communications',ar:'تعرض خصوصية البيانات في مراسلات المستثمرين',cat:'CMP',l:3,i:4,owner:'Fatima Al-Emadi',obj:'Trust & Market Integrity',srcType:'Incident',srcRef:'INC-2026-0004',mit:'Data-quality controls; privacy awareness.',status:'Monitoring',date:'2026-07-08',due:'2026-07-25',stage:'monitor'},
 ];
 /* compute scores/bands */
 function withScore(a){a.forEach(r=>{if(r.l&&r.i){r.score=r.l*r.i;r.band=bandOf(r.score);if(r.rl&&r.ri){r.rscore=r.rl*r.ri;r.rband=bandOf(r.rscore);}}});return a;}
 [L01,L04,L05].forEach(withScore);
 const SEV_BAND={Low:'Low',Medium:'Medium',High:'High',Critical:'Critical'};
+
+/* ================= RISK MANAGEMENT PROCESS FLOW (Risk Details page) ================= */
+const STAGES=[
+  {id:'identify',en:'Identify',ar:'التحديد',icon:'alert',tipEn:'Risk is captured, described, and assigned to an owner.',tipAr:'يتم رصد المخاطرة ووصفها وتعيين مالك لها.'},
+  {id:'assess',en:'Assess',ar:'التقييم',icon:'filter',tipEn:'Likelihood and impact are scored to determine the inherent risk rating.',tipAr:'يتم تقييم الاحتمالية والأثر لتحديد تصنيف المخاطرة المتأصلة.'},
+  {id:'mitigate',en:'Mitigate',ar:'المعالجة',icon:'gear',tipEn:'A treatment plan and action owners are assigned to reduce the risk.',tipAr:'يتم تحديد خطة معالجة ومسؤولين لتنفيذها للحد من المخاطرة.'},
+  {id:'monitor',en:'Monitor',ar:'المراقبة',icon:'eye',tipEn:'Control effectiveness and residual risk are tracked over time.',tipAr:'تُتابع فعالية الضوابط والمخاطر المتبقية بمرور الوقت.'},
+  {id:'close',en:'Close',ar:'الإغلاق',icon:'check',tipEn:'The risk is formally closed following final review and approval.',tipAr:'يتم إغلاق المخاطرة رسمياً بعد المراجعة والاعتماد النهائيين.'},
+];
+const STAGE_ORDER=STAGES.map(s=>s.id);
+const STAGE_STATUS={identify:'Open',assess:'Open',mitigate:'In Treatment',monitor:'Monitoring',close:'Closed'};
+const BU_BY_DEPT={CUS:'Client & Custody Services',OPS:'Operations & Settlement',IT:'Technology & Digital Services',
+  FIN:'Finance & Treasury',LEG:'Legal, Compliance & Governance',RSK:'Risk & Assurance',HR:'People & Culture',PMO:'Strategy & Portfolio Management'};
+const OBJ_BY_CAT={OPR:'Ensure reliable settlement and operational continuity',ISC:'Protect information and physical security',
+  CYB:'Protect information assets and platform integrity',FNC:'Safeguard financial control integrity',
+  CMP:'Maintain regulatory compliance standing',STR:'Support strategic resilience objectives',
+  REP:'Protect market trust and institutional reputation',LGL:'Ensure legal and contractual compliance'};
+const CAT_IMPACT_PROFILE={
+  OPR:{financial:'Medium',operational:'High',compliance:'Low',reputational:'Medium'},
+  ISC:{financial:'Medium',operational:'High',compliance:'Medium',reputational:'High'},
+  CYB:{financial:'High',operational:'High',compliance:'High',reputational:'High'},
+  FNC:{financial:'High',operational:'Medium',compliance:'Medium',reputational:'Medium'},
+  CMP:{financial:'Medium',operational:'Low',compliance:'High',reputational:'Medium'},
+  STR:{financial:'Medium',operational:'Medium',compliance:'Low',reputational:'High'},
+  REP:{financial:'Low',operational:'Low',compliance:'Low',reputational:'High'},
+  LGL:{financial:'Medium',operational:'Low',compliance:'High',reputational:'Medium'},
+};
+const RISK_SOURCES=[{en:'Self-Assessment',ar:'تقييم ذاتي'},{en:'Internal Audit',ar:'التدقيق الداخلي'},
+  {en:'Risk Workshop',ar:'ورشة عمل المخاطر'},{en:'Incident Escalation',ar:'تصعيد حادثة'},{en:'Regulatory Review',ar:'مراجعة تنظيمية'}];
+const TREATMENT_BY_BAND={Low:{en:'Accept',ar:'قبول'},Medium:{en:'Reduce',ar:'تخفيف'},High:{en:'Reduce',ar:'تخفيف'},Critical:{en:'Reduce & Escalate',ar:'تخفيف وتصعيد'}};
+const PRIORITY_BY_BAND={Low:{en:'Low',ar:'منخفضة'},Medium:{en:'Medium',ar:'متوسطة'},High:{en:'High',ar:'مرتفعة'},Critical:{en:'Urgent',ar:'عاجلة'}};
 
 /* trend data (risks accepted per month) */
 const TREND=[{m:'Feb',v:3},{m:'Mar',v:5},{m:'Apr',v:6},{m:'May',v:8},{m:'Jun',v:11},{m:'Jul',v:14}];
@@ -629,6 +776,39 @@ const T={
   view:{en:'View',ar:'عرض'}, edit:{en:'Edit',ar:'تعديل'}, changeStatus:{en:'Advance status',ar:'تقديم الحالة'},
   runScan:{en:'Run daily overdue scan',ar:'تشغيل فحص التأخر اليومي'},
   yourDept:{en:'Your department',ar:'إدارتك'}, allDepts:{en:'All departments',ar:'كل الإدارات'},
+
+  /* ---- Risk Details page ---- */
+  backToRegister:{en:'Back to register',ar:'العودة إلى السجل'},
+  presentationMode:{en:'Presentation Mode',ar:'وضع العرض التقديمي'}, on:{en:'On',ar:'مُفعّل'},
+  riskSummary:{en:'Risk Summary',ar:'ملخص المخاطرة'}, riskTitle:{en:'Risk Title',ar:'عنوان المخاطرة'},
+  businessUnit:{en:'Business Unit',ar:'وحدة الأعمال'}, riskType:{en:'Risk Type',ar:'نوع المخاطرة'},
+  riskSourceLbl:{en:'Risk Source',ar:'مصدر المخاطرة'}, reporter:{en:'Reporter',ar:'المُبلّغ'},
+  attachments:{en:'Attachments',ar:'المرفقات'}, enterpriseWide:{en:'Enterprise-wide',ar:'على مستوى المؤسسة'},
+  currentStage:{en:'Current Stage',ar:'المرحلة الحالية'}, stage:{en:'Stage',ar:'مرحلة'}, of:{en:'of',ar:'من'},
+  complete:{en:'Complete',ar:'مكتمل'}, estCompletion:{en:'Estimated Completion',ar:'تاريخ الإنجاز المتوقع'},
+  lastUpdated:{en:'Last Updated',ar:'آخر تحديث'}, riskRating:{en:'Risk Rating',ar:'تصنيف المخاطرة'},
+  riskOwner:{en:'Risk Owner',ar:'مالك المخاطرة'}, prevStage:{en:'Previous Stage',ar:'المرحلة السابقة'},
+  nextStage:{en:'Next Stage',ar:'المرحلة التالية'}, inherentScore:{en:'Inherent Risk Score',ar:'درجة المخاطرة المتأصلة'},
+  financialImpact:{en:'Financial Impact',ar:'الأثر المالي'}, operationalImpact:{en:'Operational Impact',ar:'الأثر التشغيلي'},
+  complianceImpact:{en:'Compliance Impact',ar:'أثر الامتثال'}, reputationalImpact:{en:'Reputational Impact',ar:'الأثر على السمعة'},
+  assessmentNotes:{en:'Assessment Notes',ar:'ملاحظات التقييم'}, treatmentStrategy:{en:'Treatment Strategy',ar:'استراتيجية المعالجة'},
+  actionItems:{en:'Action Items',ar:'بنود الإجراءات'}, actionOwners:{en:'Action Owners',ar:'مسؤولو الإجراءات'},
+  targetCompletion:{en:'Target Completion',ar:'الإنجاز المستهدف'}, priority:{en:'Priority',ar:'الأولوية'},
+  budget:{en:'Budget',ar:'الميزانية'}, expectedReduction:{en:'Expected Risk Reduction',ar:'خفض المخاطرة المتوقع'},
+  progressTimeline:{en:'Progress Timeline',ar:'الجدول الزمني للتقدم'}, completedActions:{en:'Completed Actions',ar:'الإجراءات المكتملة'},
+  pendingActions:{en:'Pending Actions',ar:'الإجراءات المعلقة'}, controlEffectiveness:{en:'Control Effectiveness',ar:'فعالية الضوابط'},
+  reviewSchedule:{en:'Review Schedule',ar:'جدول المراجعة'}, riskTrend:{en:'Risk Trend',ar:'اتجاه المخاطرة'},
+  riskHistory:{en:'Risk History',ar:'سجل المخاطرة'}, closureJustification:{en:'Closure Justification',ar:'مبررات الإغلاق'},
+  approvalInfo:{en:'Approval Information',ar:'معلومات الاعتماد'}, lessonsLearned:{en:'Lessons Learned',ar:'الدروس المستفادة'},
+  finalReview:{en:'Final Review',ar:'المراجعة النهائية'}, closureDate:{en:'Closure Date',ar:'تاريخ الإغلاق'},
+  closedBy:{en:'Closed By',ar:'أُغلقت بواسطة'}, riskTimelineLbl:{en:'Risk Timeline',ar:'المسار الزمني للمخاطرة'},
+  activityFeed:{en:'Activity Feed',ar:'سجل النشاط'}, commentsLbl:{en:'Comments',ar:'التعليقات'},
+  postComment:{en:'Post',ar:'نشر'}, writeComment:{en:'Add a comment…',ar:'أضف تعليقاً…'},
+  riskMatrixLbl:{en:'Risk Matrix',ar:'مصفوفة المخاطر'}, noComments:{en:'No comments yet',ar:'لا توجد تعليقات بعد'},
+  riskIdLbl:{en:'Risk ID',ar:'معرّف المخاطرة'},
+  increasing:{en:'Increasing',ar:'متزايد'}, stable:{en:'Stable',ar:'مستقر'}, decreasing:{en:'Decreasing',ar:'متناقص'},
+  effective:{en:'Effective',ar:'فعّال'}, partiallyEffective:{en:'Partially Effective',ar:'فعّال جزئياً'},
+  needsImprovement:{en:'Needs Improvement',ar:'يحتاج تحسيناً'}, monthly:{en:'Monthly',ar:'شهرياً'}, quarterly:{en:'Quarterly',ar:'ربع سنوي'},
 };
 function tt(k){const o=T[k];return o?(o[state.lang]||o.en):k;}
 /* ---------------- ICONS ---------------- */
@@ -668,7 +848,8 @@ const ICON={
 const LOGO=`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>`;
 function ic(name,cls){const s=ICON[name]||"";return cls?s.replace('class="ic"',`class="ic ${cls}"`):s;}
 /* ================= STATE ================= */
-const state={ personaId:'rsk', lang:'en', view:'home', notifs:[], notifOpen:false };
+const state={ personaId:'rsk', lang:'en', view:'home', notifs:[], notifOpen:false,
+  presentationMode:true, riskDetail:null, riskComments:{}, riskActivity:{} };
 let SEQ={ERR:7,INC:6,PRA:3,ORR:99,ENR:5};
 
 /* Navigation model: which views each role may open */
@@ -878,6 +1059,10 @@ function renderChrome(){
 function render(){
   renderChrome();
   const view=document.getElementById('view');
+  if(state.view==='riskDetail'){
+    view.innerHTML=riskDetailAccessible()?riskDetailView():restrictedView();
+    window.scrollTo(0,0); return;
+  }
   if(!roleCan(state.view)){ view.innerHTML=restrictedView(); window.scrollTo(0,0); return; }
   const fn=VIEWS[state.view];
   view.innerHTML=fn?fn():emptyState();
@@ -950,7 +1135,7 @@ const VIEWS={
   home:homeView, emerging:emergingView, incidents:incidentsView, project:projectView,
   oprisk:opRiskView, entrisk:entRiskView, dashDept:dashDeptView, dashEnt:dashEntView,
   dashExec:dashExecView, dashAging:dashAgingView, flows:flowsView, lists:listsView,
-  entra:entraView, arch:archView,
+  entra:entraView, arch:archView, riskDetail:riskDetailView,
 };
 
 function homeView(){
@@ -1370,28 +1555,354 @@ function openProjDetail(ref){
     field(tt('description'),r.desc)+field(tt('knownRisks'),r.known)+
     `<div class="row2">${field(tt('submitter'),(nm(r.by)||r.byName))}${field(tt('date'),r.date)}</div>`,actions.join('')));
 }
-function openOpDetail(ref){
-  const r=L04.find(x=>x.ref===ref);if(!r)return;const canEdit=canEditOp();
-  const actions=[`<button class="btn ghost" data-act="close-panel">${tt('cancel')}</button>`];
-  if(canEdit&&r.status!=='Closed')actions.push(`<button class="btn" data-act="advance-op" data-ref="${ref}">${ic('trend')} ${tt('changeStatus')}</button>`);
-  if(isRiskMgmt())actions.push(`<button class="btn primary" data-act="promote-op" data-ref="${ref}">${ic('enterprise')} ${tt('promote')}</button>`);
-  openPanel(panelShell(state.lang==='ar'&&r.ar?r.ar:r.desc,`${r.ref} · L04 Operational Risk Register`,
-    `<div class="row2">${field(tt('category'),catName(r.cat))}${field(tt('department'),deptName(r.dept))}</div>`+
-    field(tt('cause'),r.cause)+
-    `<div class="row2">${field(tt('score'),scoreChip(r.score,r.band)+' '+bandPill(r.band))}${field(tt('residual'),scoreChip(r.rscore,r.rband)+' '+bandPill(r.rband))}</div>`+
-    field(tt('owner'),r.owner)+field(tt('mitigation'),r.mit)+
-    `<div class="row2">${field(tt('due'),(daysUntil(r.due)<0&&r.status!=='Closed'?`<span style="color:var(--danger);font-weight:700">${r.due} · ${Math.abs(daysUntil(r.due))} ${tt('daysOverdue')}</span>`:r.due))}${field(tt('status'),statusPill(r.status))}</div>`+
-    `<div class="callout" style="margin-top:8px">${ic('shield')}<div style="font-size:12px">${state.lang==='ar'?'الحذف مقصور على إدارة المخاطر (ORR-03).':'Deletion is restricted to the Risk Management Department (ORR-03).'}</div></div>`,
-    actions.join('')));
+/* ================= RISK DETAILS PAGE — DATA HELPERS ================= */
+function riskKey(m,ref){return m+':'+ref;}
+function hashStr(s){let h=0;for(let i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))>>>0;return h;}
+function shiftDate(d,days){const dt=new Date(d);dt.setDate(dt.getDate()+days);return fmtDate(dt);}
+function buFor(r,module){return module==='ent'?'Board & Executive Committee':(BU_BY_DEPT[r.dept]||deptName(r.dept));}
+function objFor(r,module){return module==='ent'?r.obj:(OBJ_BY_CAT[r.cat]||catName(r.cat));}
+function riskSourceFor(r){return RISK_SOURCES[hashStr(r.ref)%RISK_SOURCES.length];}
+function reporterFor(r,module){
+  if(module==='ent')return 'Fatima Al-Emadi';
+  const cands=PERSONAS.filter(p=>p.dept===r.dept&&p.name!==r.owner);
+  return cands.length?cands[hashStr(r.ref)%cands.length].name:r.owner;
 }
-function openEntDetail(ref){
-  const r=L05.find(x=>x.ref===ref);if(!r)return;
-  openPanel(panelShell(state.lang==='ar'&&r.ar?r.ar:r.desc,`${r.ref} · L05 Enterprise Risk Register`,
-    `<div class="row2">${field(tt('category'),catName(r.cat))}${field(tt('status'),statusPill(r.status))}</div>`+
-    `<div class="row2">${field(tt('score'),scoreChip(r.score,r.band)+' '+bandPill(r.band))}${field(tt('entOwner'),r.owner)}</div>`+
-    field(tt('strategicObj'),r.obj)+field(tt('mitigation'),r.mit)+
-    field(tt('source'),`<span class="status">${ic('link')} ${r.srcType} · ${r.srcRef}</span>`),
-    `<button class="btn ghost" data-act="close-panel">${tt('cancel')}</button>`));
+function budgetFor(r){return (r.score*4500).toLocaleString()+' QAR';}
+function residualScoreOf(r,stageId){
+  if(r.rscore)return {score:r.rscore,band:r.rband};
+  const idx=STAGE_ORDER.indexOf(stageId);
+  const factor=[1,0.9,0.7,0.55,0.4][idx];
+  const sc=Math.max(1,Math.round(r.score*factor));
+  return {score:sc,band:bandOf(sc)};
+}
+function expectedReductionPct(r,stageId){
+  const res=residualScoreOf(r,stageId);
+  return Math.max(0,Math.round((1-(res.score/r.score))*100));
+}
+function controlEffectivenessFor(r,stageId){
+  const res=residualScoreOf(r,stageId);const ratio=res.score/r.score;
+  if(ratio<=0.5)return 'effective'; if(ratio<=0.75)return 'partiallyEffective'; return 'needsImprovement';
+}
+function reviewScheduleFor(r){return (r.band==='Critical'||r.band==='High')?'monthly':'quarterly';}
+function riskTrendFor(r){
+  if(r.rl!=null&&r.ri!=null){ if(r.rl<r.l||r.ri<r.i)return 'decreasing'; if(r.rl===r.l&&r.ri===r.i)return 'stable'; return 'increasing'; }
+  return 'decreasing';
+}
+function linkifyMentions(text){return (text||'').replace(/@([A-Za-z]+)/g,'<span class="mention">@$1</span>');}
+const ATTACH_BY_STAGE={identify:'Initial_Risk_Report.pdf',assess:'Risk_Assessment_Matrix.xlsx',
+  mitigate:'Mitigation_Action_Plan.docx',monitor:'Monitoring_Dashboard_Export.pdf',close:'Closure_Report.pdf'};
+function attachmentsFor(r,stageId){
+  const idx=STAGE_ORDER.indexOf(stageId);
+  return STAGE_ORDER.slice(0,idx+1).map((sid,i)=>({
+    name:`${r.ref}_${ATTACH_BY_STAGE[sid]}`, size:(140+i*63+(hashStr(r.ref+sid)%40))+' KB',
+    date:shiftDate(r.date,i*5+2), by:r.owner}));
+}
+function actionItemsFor(r,stageId,module){
+  const doneN={identify:0,assess:0,mitigate:1,monitor:2,close:3}[stageId]||0;
+  const rep=reporterFor(r,module);
+  const templates=state.lang==='ar'?[
+    `تنفيذ: ${r.mit}`,`التحقق من فعالية الضوابط لفئة ${catName(r.cat)}`,`إبلاغ ${r.owner} ورئيس الإدارة بوضع المخاطرة المتبقية`,
+  ]:[
+    `Implement: ${r.mit}`,`Validate control effectiveness for the ${catName(r.cat)} exposure`,
+    `Brief ${r.owner} and department head on residual risk position`,
+  ];
+  return templates.map((t,i)=>({title:t,owner:i===1?r.owner:rep,due:shiftDate(r.due,(i-2)*6),
+    status:i<doneN?'done':(i===doneN?'progress':'pending')}));
+}
+const MILESTONES=[
+  {key:'created',stage:'identify',en:'Risk created',ar:'تم إنشاء المخاطرة'},
+  {key:'assessed',stage:'assess',en:'Assessment completed',ar:'اكتمل التقييم'},
+  {key:'assigned',stage:'mitigate',en:'Mitigation assigned',ar:'تم تعيين خطة المعالجة'},
+  {key:'approved',stage:'mitigate',en:'Manager approved treatment plan',ar:'اعتماد خطة المعالجة من المدير'},
+  {key:'residual',stage:'monitor',en:'Residual risk updated',ar:'تحديث المخاطر المتبقية'},
+  {key:'monitoring',stage:'monitor',en:'Monitoring started',ar:'بدء المراقبة'},
+  {key:'closed',stage:'close',en:'Risk formally closed',ar:'إغلاق المخاطرة رسمياً'},
+];
+function riskTimelineFor(r,stageId){
+  const idx=STAGE_ORDER.indexOf(stageId);
+  const reached=MILESTONES.filter(m=>STAGE_ORDER.indexOf(m.stage)<=idx);
+  const upcoming=MILESTONES.filter(m=>STAGE_ORDER.indexOf(m.stage)===idx+1).slice(0,1);
+  const out=reached.map((m,i)=>({...m,date:shiftDate(r.date,i*4+1),done:true}));
+  upcoming.forEach(m=>out.push({...m,date:'—',done:false}));
+  return out;
+}
+function ensureRiskExtras(module,ref,r){
+  const key=riskKey(module,ref);
+  if(!state.riskActivity[key]){
+    const idx=STAGE_ORDER.indexOf(r.stage);
+    const seed=[{who:reporterFor(r,module),action:{en:'Reported the risk',ar:'أبلغ عن المخاطرة'},date:r.date,icon:'alert'}];
+    if(idx>=1)seed.push({who:r.owner,action:{en:'Completed the likelihood × impact assessment',ar:'أكمل تقييم الاحتمالية × الأثر'},date:shiftDate(r.date,3),icon:'filter'});
+    if(idx>=2)seed.push({who:r.owner,action:{en:'Submitted the mitigation plan for approval',ar:'قدّم خطة المعالجة للاعتماد'},date:shiftDate(r.date,7),icon:'gear'});
+    if(idx>=3)seed.push({who:'Fatima Al-Emadi',action:{en:'Moved the risk into monitoring',ar:'نقل المخاطرة إلى مرحلة المراقبة'},date:shiftDate(r.date,14),icon:'eye'});
+    if(idx>=4)seed.push({who:'Fatima Al-Emadi',action:{en:'Approved final closure',ar:'اعتمد الإغلاق النهائي'},date:shiftDate(r.date,21),icon:'check'});
+    state.riskActivity[key]=seed.reverse();
+  }
+  if(!state.riskComments[key]){
+    state.riskComments[key]=[
+      {who:r.owner,date:shiftDate(r.date,2),text:`Root cause confirmed as "${r.cause||catName(r.cat)}". Starting on the treatment plan.`},
+      {who:'Fatima Al-Emadi',date:shiftDate(r.date,4),text:`Agreed — please loop in @${(reporterFor(r,module)||'').split(' ')[0]} once the plan is ready for review.`},
+    ];
+  }
+}
+function pushActivity(module,ref,action){
+  const key=riskKey(module,ref);
+  if(!state.riskActivity[key])state.riskActivity[key]=[];
+  state.riskActivity[key].unshift({who:persona().name,action,date:fmtDate(TODAY),icon:'trend'});
+}
+
+/* ================= RISK DETAILS PAGE — RENDERING ================= */
+function riskMatrixMini(l,i){
+  let html='<div class="rd-matrix">';
+  for(let imp=5;imp>=1;imp--){
+    html+='<div class="rd-mrow">';
+    for(let lik=1;lik<=5;lik++){
+      const sc=lik*imp;const b=bandOf(sc);const active=lik===l&&imp===i;
+      html+=`<div class="mcell b-${b} ${active?'active':''}">${sc}</div>`;
+    }
+    html+='</div>';
+  }
+  return html+'</div>';
+}
+function trendChip(trend){
+  const map={increasing:{c:'var(--danger)',ic:'arrowup'},stable:{c:'var(--ink-3)',ic:'trend'},decreasing:{c:'var(--good)',ic:'trend'}};
+  const m=map[trend];
+  return `<span style="color:${m.c};font-weight:700;display:inline-flex;align-items:center;gap:6px">${ic(m.ic)} ${tt(trend)}</span>`;
+}
+function stageIdentifyHTML(r,rd){
+  const l=state.lang;const module=rd.module;const src=riskSourceFor(r);
+  const desc=(l==='ar'&&r.ar)?r.ar:`${r.desc}${r.cause?` — root cause: ${r.cause}.`:''}`;
+  return `<div class="row2">${field(tt('riskTitle'),l==='ar'&&r.ar?r.ar:r.desc)}${field(tt('category'),catName(r.cat))}</div>
+    ${field(tt('description'),desc)}
+    <div class="row2">${field(tt('businessUnit'),buFor(r,module))}${field(tt('department'),module==='ent'?tt('enterpriseWide'):deptName(r.dept))}</div>
+    <div class="row2">${field(tt('riskType'),catName(r.cat))}${field(tt('riskSourceLbl'),l==='ar'?src.ar:src.en)}</div>
+    ${field(tt('strategicObj'),objFor(r,module))}
+    <div class="row2">${field(tt('owner'),r.owner)}${field(tt('reporter'),reporterFor(r,module))}</div>`;
+}
+function stageAssessHTML(r,rd){
+  const p=CAT_IMPACT_PROFILE[r.cat]||{financial:'Medium',operational:'Medium',compliance:'Medium',reputational:'Medium'};
+  const chip=v=>`<span class="pill-band b-${v}">${bandName(v)}</span>`;
+  const lik=(SCALE.find(x=>x.v===r.l)||{})[state.lang]||r.l, imp=(IMPACT.find(x=>x.v===r.i)||{})[state.lang]||r.i;
+  return `<div class="row2">${field(tt('likelihood'),lik)}${field(tt('impact'),imp)}</div>
+    <div class="field"><label>${tt('riskMatrixLbl')}</label>${riskMatrixMini(r.l,r.i)}</div>
+    <div class="row2">${field(tt('inherentScore'),scoreChip(r.score,r.band))}${field(tt('band'),bandPill(r.band))}</div>
+    <div class="field"><label>${tt('financialImpact')} · ${tt('operationalImpact')} · ${tt('complianceImpact')} · ${tt('reputationalImpact')}</label>
+      <div class="rd-impacts">
+        <div class="rd-impact"><div class="k">${tt('financialImpact')}</div><div class="v">${chip(p.financial)}</div></div>
+        <div class="rd-impact"><div class="k">${tt('operationalImpact')}</div><div class="v">${chip(p.operational)}</div></div>
+        <div class="rd-impact"><div class="k">${tt('complianceImpact')}</div><div class="v">${chip(p.compliance)}</div></div>
+        <div class="rd-impact"><div class="k">${tt('reputationalImpact')}</div><div class="v">${chip(p.reputational)}</div></div>
+      </div></div>
+    ${field(tt('assessmentNotes'),`A ${r.band.toLowerCase()}-band rating was derived from a likelihood of ${r.l} and impact of ${r.i}. ${r.cause?`Primary driver: ${r.cause}.`:''} Reassessment follows the ${tt(reviewScheduleFor(r)).toLowerCase()} review cycle.`)}`;
+}
+function stageMitigateHTML(r,rd){
+  const items=actionItemsFor(r,rd.stage,rd.module);
+  const treat=TREATMENT_BY_BAND[r.band];const doneN=items.filter(i=>i.status==='done').length;
+  const rows=items.map(a=>`<div class="rd-action ${a.status==='done'?'done':a.status==='progress'?'progress':''}">
+    <div class="ck">${ic(a.status==='done'?'check':a.status==='progress'?'clock':'')}</div>
+    <div><div class="at">${a.title}</div><div class="am">${tt('owner')}: ${a.owner} · ${tt('due')}: ${a.due}</div></div></div>`).join('');
+  return `<div class="row2">${field(tt('treatmentStrategy'),state.lang==='ar'?treat.ar:treat.en)}${field(tt('priority'),state.lang==='ar'?PRIORITY_BY_BAND[r.band].ar:PRIORITY_BY_BAND[r.band].en)}</div>
+    ${field(tt('mitigation'),r.mit)}
+    <div class="field"><label>${tt('actionItems')} (${doneN}/${items.length})</label>${rows}</div>
+    <div class="row2">${field(tt('targetCompletion'),r.due)}${field(tt('budget'),budgetFor(r))}</div>
+    ${field(tt('expectedReduction'),expectedReductionPct(r,rd.stage)+'%')}`;
+}
+function stageMonitorHTML(r,rd){
+  const items=actionItemsFor(r,rd.stage,rd.module);
+  const done=items.filter(i=>i.status==='done').length,pending=items.length-done;
+  const res=residualScoreOf(r,rd.stage);const ce=controlEffectivenessFor(r,rd.stage);
+  return `<div class="row2">${field(tt('completedActions'),done+' / '+items.length)}${field(tt('pendingActions'),pending)}</div>
+    <div class="row2">${field(tt('residual'),scoreChip(res.score,res.band)+' '+bandPill(res.band))}${field(tt('controlEffectiveness'),tt(ce))}</div>
+    <div class="row2">${field(tt('reviewSchedule'),tt(reviewScheduleFor(r)))}${field(tt('riskTrend'),trendChip(riskTrendFor(r)))}</div>
+    ${field(tt('progressTimeline'),`${done} ${tt('of')} ${items.length} — ${state.lang==='ar'?'راجع الجدول الزمني للمخاطرة أدناه':'see the risk timeline below'}`)}
+    ${field(tt('riskHistory'),state.lang==='ar'?'راجع سجل النشاط أدناه لكامل السجل التدقيقي.':'See the activity feed below for the full audit trail.')}`;
+}
+function stageCloseHTML(r,rd){
+  const res=residualScoreOf(r,rd.stage);
+  return field(tt('closureJustification'),
+      `All mitigation actions were completed and validated; residual risk reduced to ${res.band} (score ${res.score}), within department risk appetite.`)+
+    `<div class="row2">${field(tt('approvalInfo'),'Approved by Fatima Al-Emadi (Risk Management); department concurrence on file.')}
+      ${field(tt('finalReview'),'Completed — no residual actions outstanding.')}</div>
+    ${field(tt('lessonsLearned'),`${catName(r.cat)} exposures of this type benefit from earlier control automation; recommend replicating the mitigation approach across similar ${deptName(r.dept)} processes.`)}
+    <div class="row2">${field(tt('residual'),scoreChip(res.score,res.band)+' '+bandPill(res.band))}${field(tt('closureDate'),r.due)}</div>
+    ${field(tt('closedBy'),'Fatima Al-Emadi')}`;
+}
+function stageDetailCardHTML(r,rd){
+  const s=STAGES.find(x=>x.id===rd.stage);
+  const body=rd.stage==='identify'?stageIdentifyHTML(r,rd):rd.stage==='assess'?stageAssessHTML(r,rd):
+    rd.stage==='mitigate'?stageMitigateHTML(r,rd):rd.stage==='monitor'?stageMonitorHTML(r,rd):stageCloseHTML(r,rd);
+  return `<section class="card stage-fade"><div class="ch"><span style="color:var(--teal)">${ic(s.icon)}</span>
+    <h3>${state.lang==='ar'?s.ar:s.en}</h3><span class="sub">${tt('currentStage')}</span></div><div class="cb">${body}</div></section>`;
+}
+function riskSummaryCardHTML(r,rd){
+  const l=state.lang;
+  return card(tt('riskSummary'),`<div class="row2">${field(tt('riskTitle'),l==='ar'&&r.ar?r.ar:r.desc)}${field(tt('category'),catName(r.cat))}</div>
+    <div class="row2">${field(tt('businessUnit'),buFor(r,rd.module))}${field(tt('owner'),r.owner)}</div>`,{icon:'doc'});
+}
+function riskTimelineCardHTML(r,stageId){
+  const items=riskTimelineFor(r,stageId);
+  const body=`<div class="rd-timeline">${items.map(m=>`<div class="rd-tnode ${m.done?'':'pending'}">
+    <div class="tt-title">${state.lang==='ar'?m.ar:m.en}</div><div class="tt-date">${m.date}</div></div>`).join('')}</div>`;
+  return card(tt('riskTimelineLbl'),body,{icon:'clock'});
+}
+function activityFeedCardHTML(key){
+  const items=state.riskActivity[key]||[];
+  if(!items.length)return card(tt('activityFeed'),emptyState(),{icon:'flow'});
+  const body=items.map(a=>`<div class="rd-activity"><div class="aa">${ic(a.icon||'flow')}</div>
+    <div class="ax"><b>${a.who}</b><p>${a.action?(state.lang==='ar'?a.action.ar:a.action.en):''}</p><span>${a.date}</span></div></div>`).join('');
+  return card(tt('activityFeed'),body,{icon:'flow'});
+}
+function attachmentsCardHTML(r,stageId){
+  const items=attachmentsFor(r,stageId);
+  const body=items.map(a=>`<div class="rd-attach"><div class="fi">${ic('doc')}</div>
+    <div style="flex:1;min-width:0"><div class="fn">${a.name}</div><div class="fm">${a.size} · ${a.by} · ${a.date}</div></div></div>`).join('');
+  return card(tt('attachments'),body,{icon:'doc'});
+}
+function commentsCardHTML(key){
+  const items=state.riskComments[key]||[];
+  const list=items.length?items.map(c=>{
+    const p=PERSONAS.find(x=>x.name===c.who);
+    const av=`<span class="avatar" style="width:30px;height:30px;font-size:11.5px;background:${p?p.color:'var(--ink-3)'}">${initials(c.who)}</span>`;
+    return `<div class="rd-comment">${av}<div class="cx"><div class="ch2"><b>${c.who}</b><span>${c.date}</span></div>
+      <div class="cb2">${linkifyMentions(c.text)}</div></div></div>`;
+  }).join(''):`<div class="empty-state" style="padding:20px 0">${tt('noComments')}</div>`;
+  const composer=`<div class="rd-composer"><textarea class="inp" id="commentBox" placeholder="${tt('writeComment')}" rows="2"></textarea>
+    <button class="btn primary" data-act="post-comment" data-key="${key}">${ic('send')} ${tt('postComment')}</button></div>`;
+  return card(tt('commentsLbl'),list+composer,{icon:'users'});
+}
+function sidebarHTML(r,rd,stageId){
+  const s=STAGES.find(x=>x.id===stageId);
+  const si=(k,v)=>`<div class="rd-si"><span class="k">${k}</span><span class="v">${v}</span></div>`;
+  return card(tt('riskIdLbl'),`
+    ${si(tt('riskIdLbl'),`<span class="ref">${r.ref}</span>`)}
+    ${si(tt('status'),statusPill(r.status))}
+    ${si(tt('currentStage'),state.lang==='ar'?s.ar:s.en)}
+    ${si(tt('riskRating'),scoreChip(r.score,r.band)+' '+bandPill(r.band))}
+    ${si(tt('riskOwner'),r.owner)}
+    ${si(tt('priority'),state.lang==='ar'?PRIORITY_BY_BAND[r.band].ar:PRIORITY_BY_BAND[r.band].en)}
+    ${si(tt('category'),catName(r.cat))}
+    ${si(tt('department'),rd.module==='ent'?tt('enterpriseWide'):deptName(r.dept))}
+    ${si(tt('businessUnit'),buFor(r,rd.module))}
+    ${si(tt('due'),r.due||'—')}
+    ${si(tt('lastUpdated'),rd.lastUpdated||r.date)}
+  `,{icon:'shield'});
+}
+function processFlowHTML(stageId,interactive){
+  const curIdx=STAGE_ORDER.indexOf(stageId);
+  let html='<div class="bpf" role="list">';
+  STAGES.forEach((s,i)=>{
+    const st=i<curIdx?'done':i===curIdx?'current':'future';
+    const canClick=interactive&&(state.presentationMode||i<=curIdx)&&i!==curIdx;
+    const tip=state.lang==='ar'?`${s.ar} — ${s.tipAr}`:`${s.en} — ${s.tipEn}`;
+    if(i>0)html+=`<div class="bpf-connector ${i<=curIdx?'filled':''}"></div>`;
+    html+=`<div class="bpf-stage ${st}" role="listitem" ${canClick?`data-act="stage-jump" data-stage="${s.id}"`:''} title="${tip}">
+      <div class="bpf-node">${st==='done'?ic('check'):ic(s.icon)}</div>
+      <div class="bpf-label">${state.lang==='ar'?s.ar:s.en}</div></div>`;
+  });
+  html+='</div>';
+  if(interactive)html+=`<div class="bpf-controls">
+    <button class="btn sm" data-act="stage-prev" ${curIdx===0?'disabled':''}>‹ ${tt('prevStage')}</button>
+    <button class="btn sm primary" data-act="stage-next" ${curIdx===4?'disabled':''}>${tt('nextStage')} ›</button></div>`;
+  return html;
+}
+function progressSummaryHTML(r,rd,stageId){
+  const idx=STAGE_ORDER.indexOf(stageId);const pct=Math.round(((idx+1)/5)*100);
+  const item=(lab,val)=>`<div><div class="rd-plabel">${lab}</div><div class="rd-pvalue">${val}</div></div>`;
+  return `<div class="card" style="margin-top:16px"><div class="cb">
+    <div class="rd-progress">
+      ${item(tt('currentStage'),`${tt('stage')} ${idx+1} ${tt('of')} 5`)}
+      ${item(tt('complete'),pct+'%')}
+      ${item(tt('estCompletion'),r.due||'—')}
+      ${item(tt('lastUpdated'),rd.lastUpdated||r.date)}
+      ${item(tt('status'),statusPill(r.status))}
+      ${item(tt('riskRating'),scoreChip(r.score,r.band)+' '+bandPill(r.band))}
+      ${item(tt('riskOwner'),r.owner)}
+    </div>
+    <div class="rd-progressbar"><div class="rd-progressfill" style="width:${pct}%"></div></div>
+  </div></div>`;
+}
+function riskDetailHeader(r,rd,canEdit){
+  const l=state.lang;
+  const modLabel=rd.module==='ent'?'L05 · Enterprise Risk Register':'L04 · Operational Risk Register';
+  const title=l==='ar'&&r.ar?r.ar:r.desc;
+  const actions=[`<button class="btn ghost" data-act="risk-back">‹ ${tt('backToRegister')}</button>`];
+  if(canEdit)actions.push(`<button class="btn ${state.presentationMode?'primary':''}" data-act="toggle-presentation">${ic('play')} ${tt('presentationMode')}${state.presentationMode?' · '+tt('on'):''}</button>`);
+  if(rd.module==='op'&&isRiskMgmt()&&r.status!=='Closed')actions.push(`<button class="btn primary" data-act="promote-op" data-ref="${r.ref}">${ic('enterprise')} ${tt('promote')}</button>`);
+  return `<div class="page-head rd-header">
+    <div class="ph-txt">
+      <div class="eyebrow"><span class="modtag">${modLabel}</span><span class="ref">${r.ref}</span>${!canEdit?`<span class="status">${ic('eye')} ${tt('readonly')}</span>`:''}</div>
+      <h1>${title}</h1><p>${objFor(r,rd.module)}</p>
+    </div>
+    <div class="ph-actions">${actions.join('')}</div>
+  </div>`;
+}
+function riskDetailAccessible(){
+  const rd=state.riskDetail;if(!rd)return false;
+  const list=rd.module==='ent'?L05:L04;const r=list.find(x=>x.ref===rd.ref);if(!r)return false;
+  if(rd.module==='ent')return isRiskMgmt();
+  return roleCan('oprisk')&&(isRiskMgmt()||r.dept===myDept());
+}
+function riskDetailView(){
+  const rd=state.riskDetail;
+  const list=rd.module==='ent'?L05:L04;
+  const r=list.find(x=>x.ref===rd.ref);
+  const key=riskKey(rd.module,rd.ref);
+  const canEdit=rd.module==='ent'?isRiskMgmt():canEditOp();
+  const interactive=state.presentationMode||canEdit;
+  const stageId=rd.stage;
+  return riskDetailHeader(r,rd,canEdit)
+    +`<div class="card"><div class="cb">${processFlowHTML(stageId,interactive)}</div></div>`
+    +progressSummaryHTML(r,rd,stageId)
+    +`<div class="rd-grid" style="margin-top:16px">
+        <div class="rd-main">
+          ${riskSummaryCardHTML(r,rd)}
+          ${stageDetailCardHTML(r,rd)}
+          ${riskTimelineCardHTML(r,stageId)}
+          ${activityFeedCardHTML(key)}
+          ${attachmentsCardHTML(r,stageId)}
+          ${commentsCardHTML(key)}
+        </div>
+        <div class="rd-side">${sidebarHTML(r,rd,stageId)}</div>
+      </div>`;
+}
+
+/* ================= RISK DETAILS PAGE — ACTIONS ================= */
+function navigateRiskDetail(module,ref){
+  const list=module==='ent'?L05:L04;
+  const r=list.find(x=>x.ref===ref);if(!r)return;
+  ensureRiskExtras(module,ref,r);
+  state.riskDetail={module,ref,stage:r.stage,lastUpdated:r.date};
+  state.view='riskDetail';
+  render();
+}
+function setRiskStage(newId){
+  const rd=state.riskDetail;if(!rd)return;
+  const list=rd.module==='ent'?L05:L04;
+  const r=list.find(x=>x.ref===rd.ref);if(!r)return;
+  const oldId=rd.stage;if(newId===oldId)return;
+  const oldIdx=STAGE_ORDER.indexOf(oldId),newIdx=STAGE_ORDER.indexOf(newId);
+  rd.stage=newId;r.stage=newId;r.status=STAGE_STATUS[newId];rd.lastUpdated=fmtDate(TODAY);
+  const s0=STAGES.find(s=>s.id===oldId),s1=STAGES.find(s=>s.id===newId);
+  pushActivity(rd.module,rd.ref,newIdx>oldIdx?
+    {en:`Advanced from ${s0.en} to ${s1.en}`,ar:`تقدّم من ${s0.ar} إلى ${s1.ar}`}:
+    {en:`Returned from ${s0.en} to ${s1.en}`,ar:`رجوع من ${s0.ar} إلى ${s1.ar}`});
+  fireFlow('FLW-05','Risk stage updated','تحديث مرحلة المخاطرة',
+    `${r.ref} successfully moved from ${s0.en} to ${s1.en}.`,
+    `${r.ref} انتقلت بنجاح من ${s0.ar} إلى ${s1.ar}.`, newIdx>oldIdx?'ok':'info');
+  render();
+}
+function stepStage(delta){
+  const rd=state.riskDetail;if(!rd)return;
+  const idx=STAGE_ORDER.indexOf(rd.stage);
+  setRiskStage(STAGE_ORDER[Math.min(4,Math.max(0,idx+delta))]);
+}
+function jumpStage(id){setRiskStage(id);}
+function togglePresentation(){state.presentationMode=!state.presentationMode;render();}
+function postComment(key){
+  const box=document.getElementById('commentBox');if(!box)return;
+  const text=box.value.trim();if(!text)return;
+  if(!state.riskComments[key])state.riskComments[key]=[];
+  state.riskComments[key].push({who:persona().name,date:fmtDate(TODAY),text});
+  render();
 }
 
 /* ================= ACTIONS ================= */
@@ -1403,10 +1914,9 @@ function advanceSubStatus(module,ref){
   openSub(module,ref);render();
 }
 function advanceProjStatus(ref){const r=L03.find(x=>x.ref===ref);const flow=['Submitted','Under Review','Accepted into Register','Closed'];r.status=flow[Math.min(flow.indexOf(r.status)+1,3)];fireFlow('FLW-05','Assessment status updated','تحديث حالة التقييم',`${r.ref} → ${r.status}. Requester notified.`,`${r.ref} ← ${r.status}.`,'ok');openProjDetail(ref);render();}
-function advanceOpStatus(ref){const r=L04.find(x=>x.ref===ref);const flow=['Open','In Treatment','Monitoring','Closed'];r.status=flow[Math.min(flow.indexOf(r.status)+1,3)];fireFlow('FLW-05','Register updated','تحديث السجل',`${r.ref} → ${r.status}.`,`${r.ref} ← ${r.status}.`,'ok');openOpDetail(ref);render();}
 function promoteToEnterprise(rec,srcType){
   const ref=`ENR-2026-${String(++SEQ.ENR).padStart(3,'0')}`;
-  L05.unshift({ref,desc:rec.title||rec.desc,ar:rec.ar,cat:rec.cat,l:rec.l||3,i:rec.i||3,owner:persona().name,obj:'To be assigned',srcType,srcRef:rec.ref,mit:rec.mit||'Enterprise mitigation plan to be defined.',status:'Open',date:fmtDate(TODAY)});
+  L05.unshift({ref,desc:rec.title||rec.desc,ar:rec.ar,cat:rec.cat,l:rec.l||3,i:rec.i||3,owner:persona().name,obj:'To be assigned',srcType,srcRef:rec.ref,mit:rec.mit||'Enterprise mitigation plan to be defined.',status:'Open',date:fmtDate(TODAY),due:shiftDate(TODAY,45),stage:'identify'});
   withScore(L05);
   fireFlow('ENR-02','Promoted to Enterprise Register','ترقية للسجل المؤسسي',`${rec.ref} promoted → ${ref}, source link preserved.`,`${rec.ref} ← ترقية إلى ${ref} مع حفظ الرابط.`,'ok');
   closePanel();state.view='entrisk';render();
@@ -1506,11 +2016,10 @@ document.addEventListener('click',e=>{
     case 'new-op': openOpForm(); break;
     case 'open-sub': openSub(el.dataset.module,el.dataset.ref); break;
     case 'open-proj': openProjDetail(el.dataset.ref); break;
-    case 'open-op': openOpDetail(el.dataset.ref); break;
-    case 'open-ent': openEntDetail(el.dataset.ref); break;
+    case 'open-op': navigateRiskDetail('op',el.dataset.ref); break;
+    case 'open-ent': navigateRiskDetail('ent',el.dataset.ref); break;
     case 'advance-sub': advanceSubStatus(el.dataset.module,el.dataset.ref); break;
     case 'advance-proj': advanceProjStatus(el.dataset.ref); break;
-    case 'advance-op': advanceOpStatus(el.dataset.ref); break;
     case 'promote': { const list=el.dataset.module==='incidents'?L02:L01; promoteToEnterprise(list.find(x=>x.ref===el.dataset.ref), el.dataset.module==='incidents'?'Incident':'Emerging Risk'); break; }
     case 'promote-op': promoteToEnterprise(L04.find(x=>x.ref===el.dataset.ref),'Operational Risk'); break;
     case 'run-scan': runDailyScan(); break;
@@ -1518,6 +2027,12 @@ document.addEventListener('click',e=>{
     case 'save-incident': saveIncident(); break;
     case 'save-project': saveProject(); break;
     case 'save-op': saveOp(); break;
+    case 'risk-back': state.view = state.riskDetail && state.riskDetail.module==='ent' ? 'entrisk':'oprisk'; render(); break;
+    case 'stage-jump': jumpStage(el.dataset.stage); break;
+    case 'stage-next': stepStage(1); break;
+    case 'stage-prev': stepStage(-1); break;
+    case 'toggle-presentation': togglePresentation(); break;
+    case 'post-comment': postComment(el.dataset.key); break;
   }
 });
 document.addEventListener('change',e=>{
