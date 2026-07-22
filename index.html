@@ -619,7 +619,7 @@ const PERSONAS=[
 const ROLE_LABEL={
   EMPLOYEE:{en:'Employee',ar:'موظف'}, PMO:{en:'PMO Member',ar:'عضو مكتب المشاريع'},
   RISK_REP:{en:'Department Risk Representative',ar:'ممثل مخاطر الإدارة'},
-  RISK_MGMT:{en:'Risk Management Staff',ar:'فريق إدارة المخاطر'},
+  RISK_MGMT:{en:'Risk Management',ar:'فريق إدارة المخاطر'},
   DEPT_HEAD:{en:'Department Head',ar:'رئيس الإدارة'}, CEO:{en:'Chief Executive Officer',ar:'الرئيس التنفيذي'},
   IT_ADMIN:{en:'IT Administrator',ar:'مسؤول تقنية المعلومات'}};
 const initials=n=>n.split(' ').slice(0,2).map(w=>w[0]).join('');
@@ -719,16 +719,16 @@ const TREND=[{m:'Feb',v:3},{m:'Mar',v:5},{m:'Apr',v:6},{m:'May',v:8},{m:'Jun',v:
 const T={
   appTitle:{en:'Risk & Information Security',ar:'المخاطر وأمن المعلومات'},
   signedIn:{en:'Signed in via Microsoft Entra ID (SSO)',ar:'تسجيل الدخول عبر Microsoft Entra ID'},
-  switchPersona:{en:'Switch persona (Entra ID SSO)',ar:'تبديل المستخدم (تسجيل دخول موحّد)'},
+  switchPersona:{en:'Switch User (Entra ID SSO)',ar:'تبديل المستخدم (تسجيل دخول موحّد)'},
   presenter:{en:'Presenter guide',ar:'دليل العرض'},
   nav_home:{en:'Home',ar:'الرئيسية'},
   nav_emerging:{en:'Emerging Risks',ar:'المخاطر الناشئة'},
   nav_incidents:{en:'Incidents',ar:'الحوادث'},
-  nav_project:{en:'Project Risk Requests',ar:'طلبات مخاطر المشاريع'},
-  nav_oprisk:{en:'Operational Register',ar:'السجل التشغيلي'},
-  nav_entrisk:{en:'Enterprise Register',ar:'السجل المؤسسي'},
+  nav_project:{en:'Project Risk Assessments',ar:'تقييمات مخاطر المشاريع'},
+  nav_oprisk:{en:'Operational Risk Register',ar:'سجل المخاطر التشغيلية'},
+  nav_entrisk:{en:'Enterprise Risk Register',ar:'سجل المخاطر المؤسسية'},
   nav_dashDept:{en:'Department Overview',ar:'نظرة عامة على الإدارة'},
-  nav_dashEnt:{en:'Enterprise Summary',ar:'الملخص المؤسسي'},
+  nav_dashEnt:{en:'Enterprise Risk Summary',ar:'ملخص المخاطر المؤسسية'},
   nav_dashExec:{en:'Executive KPI',ar:'مؤشرات تنفيذية'},
   nav_dashAging:{en:'Risk Aging',ar:'تقادم المخاطر'},
   nav_flows:{en:'Power Automate Flows',ar:'تدفقات Power Automate'},
@@ -742,50 +742,50 @@ const T={
   submit:{en:'Submit',ar:'إرسال'}, cancel:{en:'Cancel',ar:'إلغاء'}, save:{en:'Save',ar:'حفظ'},
   newEmerging:{en:'Report Emerging Risk',ar:'إبلاغ عن مخاطرة ناشئة'},
   newIncident:{en:'Report Incident',ar:'الإبلاغ عن حادثة'},
-  newProject:{en:'New Assessment Request',ar:'طلب تقييم جديد'},
+  newProject:{en:'Request Risk Assessment',ar:'طلب تقييم مخاطر'},
   newOp:{en:'Add Operational Risk',ar:'إضافة مخاطرة تشغيلية'},
-  promote:{en:'Promote to Enterprise',ar:'ترقية للسجل المؤسسي'},
+  promote:{en:'Escalate to Enterprise Register',ar:'تصعيد إلى سجل المخاطر المؤسسية'},
   mySubs:{en:'My submissions',ar:'إرسالاتي'},
-  allSubs:{en:'All submissions (Risk Management triage)',ar:'كل الإرسالات (فرز إدارة المخاطر)'},
+  allSubs:{en:'All Submissions (Pending Risk Management Review)',ar:'جميع الإرسالات (بانتظار مراجعة إدارة المخاطر)'},
   ref:{en:'Reference',ar:'المرجع'}, title:{en:'Title',ar:'العنوان'}, category:{en:'Category',ar:'الفئة'},
   department:{en:'Department',ar:'الإدارة'}, likelihood:{en:'Likelihood',ar:'الاحتمالية'},
-  impact:{en:'Impact',ar:'الأثر'}, score:{en:'Score',ar:'الدرجة'}, band:{en:'Band',ar:'التصنيف'},
-  status:{en:'Status',ar:'الحالة'}, submitter:{en:'Submitter',ar:'المُرسِل'}, date:{en:'Date',ar:'التاريخ'},
-  owner:{en:'Owner',ar:'المالك'}, severity:{en:'Severity',ar:'الخطورة'}, due:{en:'Due date',ar:'تاريخ الاستحقاق'},
+  impact:{en:'Impact',ar:'الأثر'}, score:{en:'Score',ar:'الدرجة'}, band:{en:'Risk Level',ar:'مستوى المخاطرة'},
+  status:{en:'Status',ar:'الحالة'}, submitter:{en:'Submitted By',ar:'مُقدَّم بواسطة'}, date:{en:'Date',ar:'التاريخ'},
+  owner:{en:'Owner',ar:'المالك'}, severity:{en:'Severity',ar:'الخطورة'}, due:{en:'Target Date',ar:'التاريخ المستهدف'},
   description:{en:'Description',ar:'الوصف'}, mitigation:{en:'Mitigation plan',ar:'خطة المعالجة'},
-  residual:{en:'Residual score',ar:'الدرجة المتبقية'}, cause:{en:'Cause',ar:'السبب'},
+  residual:{en:'Residual Risk Score',ar:'درجة المخاطرة المتبقية'}, cause:{en:'Root Cause',ar:'السبب الجذري'},
   attachment:{en:'Attachment (optional)',ar:'مرفق (اختياري)'},
-  riskScore:{en:'Calculated risk score',ar:'درجة المخاطرة المحتسبة'},
+  riskScore:{en:'Risk Score',ar:'درجة المخاطرة'},
   project:{en:'Project',ar:'المشروع'}, phase:{en:'Phase',ar:'المرحلة'}, reqDate:{en:'Requested date',ar:'التاريخ المطلوب'},
-  knownRisks:{en:'Known risks',ar:'المخاطر المعروفة'}, occurred:{en:'Occurred at',ar:'وقت الوقوع'},
-  strategicObj:{en:'Strategic objective',ar:'الهدف الاستراتيجي'}, source:{en:'Source record',ar:'السجل المصدر'},
-  entOwner:{en:'Enterprise owner',ar:'المالك المؤسسي'},
+  knownRisks:{en:'Known risks',ar:'المخاطر المعروفة'}, occurred:{en:'Date of Occurrence',ar:'تاريخ الوقوع'},
+  strategicObj:{en:'Strategic objective',ar:'الهدف الاستراتيجي'}, source:{en:'Source Reference',ar:'المرجع المصدر'},
+  entOwner:{en:'Enterprise Risk Owner',ar:'مالك المخاطرة المؤسسية'},
   overdue:{en:'Overdue',ar:'متأخر'}, daysLeft:{en:'days left',ar:'يوم متبقٍ'}, daysOverdue:{en:'days overdue',ar:'يوم تأخير'},
   totalRisks:{en:'Total risks',ar:'إجمالي المخاطر'}, openRisks:{en:'Open risks',ar:'المخاطر المفتوحة'},
-  criticalHigh:{en:'Critical & High',ar:'حرجة ومرتفعة'}, closedRate:{en:'Closed / mitigated',ar:'مُغلقة / مُعالجة'},
+  criticalHigh:{en:'Critical & High',ar:'حرجة ومرتفعة'}, closedRate:{en:'Resolution Rate',ar:'معدّل الإغلاق'},
   overdueMit:{en:'Overdue mitigations',ar:'معالجات متأخرة'},
-  byBand:{en:'Risks by band',ar:'المخاطر حسب التصنيف'}, byDept:{en:'Risks by department',ar:'المخاطر حسب الإدارة'},
-  byCat:{en:'Risks by category',ar:'المخاطر حسب الفئة'}, bySource:{en:'By source',ar:'حسب المصدر'},
+  byBand:{en:'By Risk Level',ar:'حسب مستوى المخاطرة'}, byDept:{en:'By Department',ar:'حسب الإدارة'},
+  byCat:{en:'By Category',ar:'حسب الفئة'}, bySource:{en:'By Source',ar:'حسب المصدر'},
   heatmap:{en:'Risk heatmap — Likelihood × Impact',ar:'خريطة حرارية — الاحتمالية × الأثر'},
-  topRisks:{en:'Top risks by score',ar:'أعلى المخاطر درجةً'}, trend:{en:'Accepted risks over time',ar:'المخاطر المقبولة عبر الزمن'},
+  topRisks:{en:'Top risks by score',ar:'أعلى المخاطر درجةً'}, trend:{en:'Risk Intake Trend',ar:'اتجاه استقبال المخاطر'},
   aging:{en:'Time in status',ar:'المدة في الحالة'},
-  none:{en:'Nothing here yet',ar:'لا يوجد شيء بعد'},
-  restricted:{en:'This screen is restricted',ar:'هذه الشاشة مقيّدة'},
+  none:{en:'No records to display',ar:'لا توجد سجلات لعرضها'},
+  restricted:{en:'Access Restricted',ar:'الوصول مقيّد'},
   restrictedMsg:{en:'Your Entra ID group does not grant access to this module. Switch persona to view it.',ar:'مجموعتك في Entra ID لا تمنح صلاحية الوصول لهذه الوحدة. بدّل المستخدم لعرضها.'},
   readonly:{en:'Read-only',ar:'للقراءة فقط'},
-  view:{en:'View',ar:'عرض'}, edit:{en:'Edit',ar:'تعديل'}, changeStatus:{en:'Advance status',ar:'تقديم الحالة'},
-  runScan:{en:'Run daily overdue scan',ar:'تشغيل فحص التأخر اليومي'},
+  view:{en:'View',ar:'عرض'}, edit:{en:'Edit',ar:'تعديل'}, changeStatus:{en:'Advance Status',ar:'تقديم الحالة'},
+  runScan:{en:'Run Overdue Mitigation Scan',ar:'تشغيل فحص المعالجات المتأخرة'},
   yourDept:{en:'Your department',ar:'إدارتك'}, allDepts:{en:'All departments',ar:'كل الإدارات'},
 
   /* ---- Risk Details page ---- */
   backToRegister:{en:'Back to register',ar:'العودة إلى السجل'},
   presentationMode:{en:'Presentation Mode',ar:'وضع العرض التقديمي'}, on:{en:'On',ar:'مُفعّل'},
   riskSummary:{en:'Risk Summary',ar:'ملخص المخاطرة'}, riskTitle:{en:'Risk Title',ar:'عنوان المخاطرة'},
-  businessUnit:{en:'Business Unit',ar:'وحدة الأعمال'}, riskType:{en:'Risk Type',ar:'نوع المخاطرة'},
-  riskSourceLbl:{en:'Risk Source',ar:'مصدر المخاطرة'}, reporter:{en:'Reporter',ar:'المُبلّغ'},
+  businessUnit:{en:'Business Unit',ar:'وحدة الأعمال'},
+  riskSourceLbl:{en:'Risk Source',ar:'مصدر المخاطرة'}, reporter:{en:'Reported By',ar:'مُبلَّغ بواسطة'},
   attachments:{en:'Attachments',ar:'المرفقات'}, enterpriseWide:{en:'Enterprise-wide',ar:'على مستوى المؤسسة'},
   currentStage:{en:'Current Stage',ar:'المرحلة الحالية'}, stage:{en:'Stage',ar:'مرحلة'}, of:{en:'of',ar:'من'},
-  complete:{en:'Complete',ar:'مكتمل'}, estCompletion:{en:'Estimated Completion',ar:'تاريخ الإنجاز المتوقع'},
+  complete:{en:'Progress',ar:'التقدم'}, estCompletion:{en:'Target Completion Date',ar:'تاريخ الإنجاز المستهدف'},
   lastUpdated:{en:'Last Updated',ar:'آخر تحديث'}, riskRating:{en:'Risk Rating',ar:'تصنيف المخاطرة'},
   riskOwner:{en:'Risk Owner',ar:'مالك المخاطرة'}, prevStage:{en:'Previous Stage',ar:'المرحلة السابقة'},
   nextStage:{en:'Next Stage',ar:'المرحلة التالية'}, inherentScore:{en:'Inherent Risk Score',ar:'درجة المخاطرة المتأصلة'},
@@ -793,16 +793,16 @@ const T={
   complianceImpact:{en:'Compliance Impact',ar:'أثر الامتثال'}, reputationalImpact:{en:'Reputational Impact',ar:'الأثر على السمعة'},
   assessmentNotes:{en:'Assessment Notes',ar:'ملاحظات التقييم'}, treatmentStrategy:{en:'Treatment Strategy',ar:'استراتيجية المعالجة'},
   actionItems:{en:'Action Items',ar:'بنود الإجراءات'}, actionOwners:{en:'Action Owners',ar:'مسؤولو الإجراءات'},
-  targetCompletion:{en:'Target Completion',ar:'الإنجاز المستهدف'}, priority:{en:'Priority',ar:'الأولوية'},
+  targetCompletion:{en:'Target Completion Date',ar:'تاريخ الإنجاز المستهدف'}, priority:{en:'Priority',ar:'الأولوية'},
   budget:{en:'Budget',ar:'الميزانية'}, expectedReduction:{en:'Expected Risk Reduction',ar:'خفض المخاطرة المتوقع'},
-  progressTimeline:{en:'Progress Timeline',ar:'الجدول الزمني للتقدم'}, completedActions:{en:'Completed Actions',ar:'الإجراءات المكتملة'},
+  progressTimeline:{en:'Milestone Progress',ar:'تقدم المراحل الرئيسية'}, completedActions:{en:'Completed Actions',ar:'الإجراءات المكتملة'},
   pendingActions:{en:'Pending Actions',ar:'الإجراءات المعلقة'}, controlEffectiveness:{en:'Control Effectiveness',ar:'فعالية الضوابط'},
   reviewSchedule:{en:'Review Schedule',ar:'جدول المراجعة'}, riskTrend:{en:'Risk Trend',ar:'اتجاه المخاطرة'},
-  riskHistory:{en:'Risk History',ar:'سجل المخاطرة'}, closureJustification:{en:'Closure Justification',ar:'مبررات الإغلاق'},
+  riskHistory:{en:'Audit Trail',ar:'السجل التدقيقي'}, closureJustification:{en:'Closure Justification',ar:'مبررات الإغلاق'},
   approvalInfo:{en:'Approval Information',ar:'معلومات الاعتماد'}, lessonsLearned:{en:'Lessons Learned',ar:'الدروس المستفادة'},
   finalReview:{en:'Final Review',ar:'المراجعة النهائية'}, closureDate:{en:'Closure Date',ar:'تاريخ الإغلاق'},
   closedBy:{en:'Closed By',ar:'أُغلقت بواسطة'}, riskTimelineLbl:{en:'Risk Timeline',ar:'المسار الزمني للمخاطرة'},
-  activityFeed:{en:'Activity Feed',ar:'سجل النشاط'}, commentsLbl:{en:'Comments',ar:'التعليقات'},
+  activityFeed:{en:'Audit Trail',ar:'السجل التدقيقي'}, commentsLbl:{en:'Comments',ar:'التعليقات'},
   postComment:{en:'Post',ar:'نشر'}, writeComment:{en:'Add a comment…',ar:'أضف تعليقاً…'},
   riskMatrixLbl:{en:'Risk Matrix',ar:'مصفوفة المخاطر'}, noComments:{en:'No comments yet',ar:'لا توجد تعليقات بعد'},
   riskIdLbl:{en:'Risk ID',ar:'معرّف المخاطرة'},
@@ -1000,7 +1000,7 @@ function lineChart(data){
 function bandPill(b){return `<span class="pill-band b-${b}">${bandName(b)}</span>`;}
 function statusPill(s){
   const map={'Submitted':'s-open','Under Review':'s-review','Accepted into Register':'s-accepted','Open':'s-open','In Treatment':'s-treatment','Monitoring':'s-accepted','Closed':'s-closed'};
-  const lab={'Submitted':{en:'Submitted',ar:'مُرسل'},'Under Review':{en:'Under Review',ar:'قيد المراجعة'},'Accepted into Register':{en:'Accepted',ar:'مقبول'},'Open':{en:'Open',ar:'مفتوح'},'In Treatment':{en:'In Treatment',ar:'قيد المعالجة'},'Monitoring':{en:'Monitoring',ar:'قيد المراقبة'},'Closed':{en:'Closed',ar:'مُغلق'}};
+  const lab={'Submitted':{en:'Submitted',ar:'مُرسل'},'Under Review':{en:'Under Review',ar:'قيد المراجعة'},'Accepted into Register':{en:'Registered',ar:'مُسجّل'},'Open':{en:'Open',ar:'مفتوح'},'In Treatment':{en:'In Treatment',ar:'قيد المعالجة'},'Monitoring':{en:'Monitoring',ar:'قيد المراقبة'},'Closed':{en:'Closed',ar:'مُغلق'}};
   const t=lab[s]?lab[s][state.lang]:s;
   return `<span class="status ${map[s]||''}">${t}</span>`;}
 function scoreChip(score,band){return `<span class="score-chip b-${band}" title="${bandName(band)}">${score}</span>`;}
@@ -1230,14 +1230,14 @@ function platformStatus(){
 /* ---- Module 1 & 2 ---- */
 function emergingView(){
   const act=`<button class="btn primary" data-act="new-emerging">${ic('plus')} ${tt('newEmerging')}</button>`;
-  return pageHead({mod:'Module 1 · L01',eyebrow:'Emerging Risk Reporting',title:tt('nav_emerging'),
-    desc:isRiskMgmt()?'Triage all emerging-risk submissions across EDAA, advance status, and promote significant risks into the Enterprise Register.':'Submit emerging risks and track the status of your own submissions. Risk Management is notified automatically.',
+  return pageHead({mod:'L01',eyebrow:'Emerging Risk Reporting',title:tt('nav_emerging'),
+    desc:isRiskMgmt()?'Review all emerging-risk submissions across EDAA, advance their status, and escalate significant risks into the Enterprise Register.':'Submit emerging risks and track the status of your own submissions. Risk Management is notified automatically.',
     actions:act})+
     card(isRiskMgmt()?tt('allSubs'):tt('mySubs'),subTable(L01,'emerging'),{icon:'alert'});
 }
 function incidentsView(){
   const act=`<button class="btn primary" data-act="new-incident">${ic('plus')} ${tt('newIncident')}</button>`;
-  return pageHead({mod:'Module 2 · L02',eyebrow:'Incident Reporting',title:tt('nav_incidents'),
+  return pageHead({mod:'L02',eyebrow:'Incident Reporting',title:tt('nav_incidents'),
     desc:isRiskMgmt()?'All reported incidents. Critical-severity incidents trigger immediate escalation to Risk Management (FLW-03).':'Report operational incidents. You can see the status of your own reports only.',
     actions:act})+
     card(isRiskMgmt()?tt('allSubs'):tt('mySubs'),subTable(L02,'incidents'),{icon:'incident'});
@@ -1255,7 +1255,7 @@ function projTable(){
 }
 function projectView(){
   const act=role()==='PMO'?`<button class="btn primary" data-act="new-project">${ic('plus')} ${tt('newProject')}</button>`:'';
-  return pageHead({mod:'Module 3 · L03',eyebrow:'Project Risk Assessment Requests',title:tt('nav_project'),
+  return pageHead({mod:'L03',eyebrow:'Project Risk Assessment Requests',title:tt('nav_project'),
     desc:'Restricted to the Project Management Office security group. Requests route to Risk Management for assessment; requesters are notified on status change.',
     actions:act})+card(tt('nav_project'),projTable(),{icon:'project'});
 }
@@ -1283,7 +1283,7 @@ function opRiskView(){
   const recs=visibleOp();const readonly=role()==='DEPT_HEAD';
   const scope=isRiskMgmt()?tt('allDepts'):deptName(myDept());
   const act=canEditOp()?`<button class="btn primary" data-act="new-op">${ic('plus')} ${tt('newOp')}</button>`:`<span class="status">${ic('eye')} ${tt('readonly')}</span>`;
-  return pageHead({mod:'Module 4 · L04',eyebrow:'Operational Risk Register',title:tt('nav_oprisk'),
+  return pageHead({mod:'L04',eyebrow:'Operational Risk Register',title:tt('nav_oprisk'),
     desc:isRiskMgmt()?'Full access to every department register. Item-level permissions are assigned automatically by Power Automate (FLW-02) based on the Department field.':readonly?`Read-only view of your department register (${scope}). Risk Representatives maintain these records.`:`You maintain the operational risk register for ${scope}. Item-level permissions restrict this list to your department (assigned by FLW-02).`,
     actions:act})+
     `<div class="callout" style="margin-bottom:16px">${ic('shield')}<div><b>${isRiskMgmt()?'Enterprise view':'Department-scoped view'}</b> — ${isRiskMgmt()?'Showing all '+L04.length+' operational risks across '+DEPTS.filter(d=>L04.some(r=>r.dept===d.id)).length+' departments.':'Row-level filtering restricts this register to <b>'+scope+'</b> via Entra ID group membership.'}</div></div>`+
@@ -1305,9 +1305,9 @@ function entRiskTable(){
     <th>${tt('entOwner')}</th><th>${tt('strategicObj')}</th><th>${tt('source')}</th><th>${tt('status')}</th></tr>${rows}</table></div>`;
 }
 function entRiskView(){
-  return pageHead({mod:'Module 5 · L05',eyebrow:'Enterprise Risk Register',title:tt('nav_entrisk'),
-    desc:'Restricted to the Risk Management security group. Emerging risks, incidents, and operational risks are promoted here with a preserved link to the source record.'})+
-    `<div class="callout maroon" style="margin-bottom:16px">${ic('enterprise')}<div><b>Consolidation view</b> — ${L05.length} enterprise-level risks, each linked to its originating record. Use <b>Promote to Enterprise</b> from any submission or operational risk to add a new entry.</div></div>`+
+  return pageHead({mod:'L05',eyebrow:'Enterprise Risk Register',title:tt('nav_entrisk'),
+    desc:'Restricted to the Risk Management security group. Emerging risks, incidents, and operational risks are escalated here with a preserved link to the source record.'})+
+    `<div class="callout maroon" style="margin-bottom:16px">${ic('enterprise')}<div><b>Consolidation view</b> — ${L05.length} enterprise-level risks, each linked to its originating record. Use <b>Escalate to Enterprise Register</b> from any submission or operational risk to add a new entry.</div></div>`+
     card(tt('nav_entrisk'),entRiskTable(),{icon:'enterprise'});
 }
 
@@ -1319,15 +1319,15 @@ function dashDeptView(){
   const picker=isRiskMgmt()?`<select class="sel" style="width:auto" data-act="pick-dept">${DEPTS.filter(d=>L04.some(r=>r.dept===d.id)).map(d=>`<option value="${d.id}" ${d.id===dept?'selected':''}>${deptName(d.id)}</option>`).join('')}</select>`:`<span class="status">${ic('building')} ${deptName(dept)}</span>`;
   const byStatus=['Open','In Treatment','Monitoring','Closed'].map(st=>({label:statusLabel(st),value:rs.filter(r=>r.status===st).length,color:'var(--teal)'}));
   const byOwner=[...new Set(rs.map(r=>r.owner))].map(o=>({label:o,value:rs.filter(r=>r.owner===o).length,color:'var(--maroon)'}));
-  return pageHead({mod:'Module 6 · DSH-01',eyebrow:'Department Risk Overview',title:tt('nav_dashDept'),
+  return pageHead({mod:'DSH-01',eyebrow:'Department Risk Overview',title:tt('nav_dashDept'),
     desc:'Each Department Head sees only their department, restricted by Power BI row-level security.',actions:picker})+
     rlsNote(isRiskMgmt()?'As Risk Management you may inspect any department; a Department Head is locked to their own via their Entra ID identity.':`Data is filtered to <b>${deptName(dept)}</b> — the department mapped to your Entra ID account.`)+
     kpiRow([{t:tt('totalRisks'),v:rs.length,icon:'register'},{t:tt('openRisks'),v:s.open,icon:'alert'},{t:tt('criticalHigh'),v:s.ch,icon:'trend',danger:s.ch>0},{t:tt('overdueMit'),v:s.overdue,icon:'clock',danger:s.overdue>0}])+
     `<div style="height:16px"></div><div class="two-col">
       ${card(tt('byBand'),`<div style="padding:6px">${bandDonut(rs)}</div>`,{icon:'dash'})}
-      ${card('By status',barList(byStatus),{icon:'dash'})}</div>
+      ${card('By Status',barList(byStatus),{icon:'dash'})}</div>
     <div style="height:16px"></div><div class="two-col">
-      ${card('By risk owner',barList(byOwner),{icon:'users'})}
+      ${card('By Risk Owner',barList(byOwner),{icon:'users'})}
       ${card(tt('topRisks'),topRisks(rs),{icon:'trend'})}</div>
     <div style="height:16px"></div>${card(tt('nav_oprisk')+' — '+deptName(dept),opRiskTable(rs),{icon:'register'})}`;
 }
@@ -1335,7 +1335,7 @@ function statusLabel(st){const m={'Open':{en:'Open',ar:'مفتوح'},'In Treatme
 function dashEntView(){
   const rs=combinedRegister();
   const sources=[['Emerging Risk',L05.filter(r=>r.srcType==='Emerging Risk').length],['Incident',L05.filter(r=>r.srcType==='Incident').length],['Operational Risk',L05.filter(r=>r.srcType==='Operational Risk').length]];
-  return pageHead({mod:'Module 6 · DSH-02',eyebrow:'Enterprise Risk Summary',title:tt('nav_dashEnt'),
+  return pageHead({mod:'DSH-02',eyebrow:'Enterprise Risk Summary',title:tt('nav_dashEnt'),
     desc:'Risk Management view of all risks across departments, categories, and sources.'})+
     kpiRow([{t:tt('totalRisks'),v:rs.length,icon:'layers'},{t:'Operational (L04)',v:L04.length,icon:'register'},{t:'Enterprise (L05)',v:L05.length,icon:'enterprise'},{t:tt('criticalHigh'),v:opStats(rs).ch,icon:'trend',danger:true}])+
     `<div style="height:16px"></div><div class="two-col">
@@ -1347,7 +1347,7 @@ function dashEntView(){
 }
 function dashExecView(){
   const rs=combinedRegister();const s=opStats(rs);const closedPct=Math.round(s.closed/rs.length*100);
-  return pageHead({mod:'Module 6 · DSH-03',eyebrow:'Executive KPI Dashboard',title:tt('nav_dashExec'),
+  return pageHead({mod:'DSH-03',eyebrow:'Executive KPI Dashboard',title:tt('nav_dashExec'),
     desc:'Enterprise risk posture for the CEO and Risk Management — totals, open vs. closed, heatmap, top risks, and trend.'})+
     kpiRow([
       {t:tt('totalRisks'),v:rs.length,icon:'layers',accent:true},
@@ -1370,10 +1370,10 @@ function dashAgingView(){
     <td>${state.lang==='ar'&&r.ar?r.ar:r.desc}</td><td class="tc">${r.owner}</td>
     <td class="tc tnum">${r.due}</td><td><span class="pill-band b-Critical">${Math.abs(daysUntil(r.due))} ${tt('daysOverdue')}</span></td>
     <td>${statusPill(r.status)}</td></tr>`).join(''):`<tr><td colspan="6">${emptyState('No overdue mitigations')}</td></tr>`;
-  return pageHead({mod:'Module 6 · DSH-04',eyebrow:'Risk Aging',title:tt('nav_dashAging'),
+  return pageHead({mod:'DSH-04',eyebrow:'Risk Aging',title:tt('nav_dashAging'),
     desc:'Time-in-status analysis highlighting overdue mitigations and stale records.',
     actions:`<button class="btn primary" data-act="run-scan">${ic('clock')} ${tt('runScan')}</button>`})+
-    kpiRow([{t:tt('overdueMit'),v:overdue.length,icon:'clock',danger:overdue.length>0},{t:'Avg. age (days)',v:Math.round(rs.reduce((s,r)=>s+daysSince(r.date),0)/rs.length),icon:'trend'},{t:'Records > 90 days',v:buckets[3][1],icon:'doc'},{t:'In treatment',v:rs.filter(r=>r.status==='In Treatment').length,icon:'register'}])+
+    kpiRow([{t:tt('overdueMit'),v:overdue.length,icon:'clock',danger:overdue.length>0},{t:'Average Age (Days)',v:Math.round(rs.reduce((s,r)=>s+daysSince(r.date),0)/rs.length),icon:'trend'},{t:'Records Over 90 Days',v:buckets[3][1],icon:'doc'},{t:'In Treatment',v:rs.filter(r=>r.status==='In Treatment').length,icon:'register'}])+
     `<div style="height:16px"></div>${card('Record age distribution',barList(buckets.map(b=>({label:b[0],value:b[1],color:'var(--teal)'}))),{icon:'clock'})}
     <div style="height:16px"></div>${card(tt('overdueMit'),`<div class="tablewrap"><table class="data"><tr><th>${tt('ref')}</th><th>${tt('description')}</th><th>${tt('owner')}</th><th>${tt('due')}</th><th>${tt('overdue')}</th><th>${tt('status')}</th></tr>${overdueRows}</table></div>`,{icon:'alert',sub:'Drives FLW-04 reminders'})}`;
 }
@@ -1396,7 +1396,7 @@ function flowsView(){
       <div class="fx"><b>${f[0]} — ${f[1]}</b><p>${f[2]}</p><span class="trig">${ic('clock',)} ${f[3]}</span></div></div>`).join(''),{icon:'flow'})}</div>
       <div>${card('Live run log',log,{icon:'send',sub:'This session'})}
       <div style="height:16px"></div>
-      ${card('Try it',`<p class="muted" style="margin:0 0 12px">Trigger flows live from the demo:</p>
+      ${card('Try It Live',`<p class="muted" style="margin:0 0 12px">Trigger flows live from the demo:</p>
         <div style="display:flex;flex-direction:column;gap:9px">
         <button class="btn" data-act="new-emerging">${ic('alert')} Submit an emerging risk → FLW-01</button>
         <button class="btn" data-act="new-op">${ic('shield')} Add an operational risk → FLW-02</button>
@@ -1477,7 +1477,7 @@ function openEmergingForm(){
        <div class="field"><label>${tt('impact')}</label><select class="sel js-calc" id="f_i">${selScale(IMPACT)}</select></div></div>
      <div class="field"><label>${tt('riskScore')}</label>${scoreLiveBox()}</div>
      <div class="field"><label>${tt('attachment')}</label><div class="filedrop">${ic('doc')}<div style="margin-top:6px">${state.lang==='ar'?'اسحب ملفاً أو انقر للإرفاق':'Drop a file or click to attach'}</div></div></div>
-     ${flowHint('On submit, <b>FLW-01</b> notifies Risk Management. A Critical band also triggers <b>FLW-03</b> escalation.')}`,
+     ${flowHint('Risk Management is notified automatically when you submit. Risks rated Critical are escalated immediately.')}`,
     `<button class="btn ghost" data-act="close-panel">${tt('cancel')}</button><button class="btn primary" data-act="save-emerging">${ic('send')} ${tt('submit')}</button>`));
   recalcScore();
 }
@@ -1489,7 +1489,7 @@ function openIncidentForm(){
        <div class="field"><label>${tt('department')}</label><select class="sel" id="f_dept">${selDepts(myDept())}</select></div></div>
      <div class="row2"><div class="field"><label>${tt('occurred')}</label><input class="inp" id="f_occ" type="datetime-local"></div>
        <div class="field"><label>${tt('severity')}</label><select class="sel" id="f_sev"><option value="Low">${bandName('Low')}</option><option value="Medium">${bandName('Medium')}</option><option value="High">${bandName('High')}</option><option value="Critical">${bandName('Critical')}</option></select></div></div>
-     ${flowHint('On submit, <b>FLW-01</b> notifies Risk Management. <b>Critical</b> severity triggers <b>FLW-03</b> immediate escalation.')}`,
+     ${flowHint('Risk Management is notified automatically when you submit. Critical-severity incidents are escalated immediately.')}`,
     `<button class="btn ghost" data-act="close-panel">${tt('cancel')}</button><button class="btn primary" data-act="save-incident">${ic('send')} ${tt('submit')}</button>`));
 }
 function openProjectForm(){
@@ -1499,7 +1499,7 @@ function openProjectForm(){
        <div class="field"><label>${tt('reqDate')}</label><input class="inp" id="f_req" type="date" value="2026-07-30"></div></div>
      <div class="field"><label>${tt('description')}</label><textarea class="inp" id="f_desc"></textarea></div>
      <div class="field"><label>${tt('knownRisks')}</label><textarea class="inp" id="f_known"></textarea></div>
-     ${flowHint('Routes to Risk Management with a notification (<b>FLW-01</b>); you are notified on status change (<b>FLW-05</b>).')}`,
+     ${flowHint('Routes to Risk Management for assessment; you will be notified automatically whenever the status changes.')}`,
     `<button class="btn ghost" data-act="close-panel">${tt('cancel')}</button><button class="btn primary" data-act="save-project">${ic('send')} ${tt('submit')}</button>`));
 }
 function openOpForm(){
@@ -1515,7 +1515,7 @@ function openOpForm(){
      <div class="field"><label>${tt('owner')}</label><input class="inp" id="f_owner" value="${persona().name}"></div>
      <div class="field"><label>${tt('mitigation')}</label><textarea class="inp" id="f_mit"></textarea></div>
      <div class="field"><label>${tt('due')}</label><input class="inp" id="f_due" type="date" value="2026-09-01"></div>
-     ${flowHint('New item triggers <b>FLW-02</b> — item-level permissions are assigned to the '+deptName(myDept())+' Risk Representative based on the Department field.')}`,
+     ${flowHint('The '+deptName(myDept())+' Risk Representative will automatically be granted edit rights to this record.')}`,
     `<button class="btn ghost" data-act="close-panel">${tt('cancel')}</button><button class="btn primary" data-act="save-op">${ic('check')} ${tt('save')}</button>`));
   recalcScore();
 }
@@ -1534,7 +1534,7 @@ function openSub(module,ref){
   const list=module==='incidents'?L02:L01;const r=list.find(x=>x.ref===ref);if(!r)return;
   const rm=isRiskMgmt();const isInc=module==='incidents';
   const actions=[`<button class="btn ghost" data-act="close-panel">${tt('cancel')}</button>`];
-  if(rm&&r.status!=='Closed')actions.push(`<button class="btn" data-act="advance-sub" data-module="${module}" data-ref="${ref}">${ic('trend')} ${tt('changeStatus')}</button>`);
+  if(rm&&r.status!=='Closed')actions.push(`<button class="btn" data-act="advance-sub" data-module="${module}" data-ref="${ref}">${ic('trend')} ${advanceLabel(r.status,module)}</button>`);
   if(rm)actions.push(`<button class="btn primary" data-act="promote" data-module="${module}" data-ref="${ref}">${ic('enterprise')} ${tt('promote')}</button>`);
   openPanel(panelShell(state.lang==='ar'&&r.ar?r.ar:r.title,`${r.ref} · ${isInc?'L02 Incident':'L01 Emerging Risk'}`,
     field(tt('status'),statusPill(r.status))+
@@ -1549,7 +1549,7 @@ function openSub(module,ref){
 function openProjDetail(ref){
   const r=L03.find(x=>x.ref===ref);if(!r)return;const rm=isRiskMgmt();
   const actions=[`<button class="btn ghost" data-act="close-panel">${tt('cancel')}</button>`];
-  if(rm&&r.status!=='Closed')actions.push(`<button class="btn" data-act="advance-proj" data-ref="${ref}">${ic('trend')} ${tt('changeStatus')}</button>`);
+  if(rm&&r.status!=='Closed')actions.push(`<button class="btn" data-act="advance-proj" data-ref="${ref}">${ic('trend')} ${advanceLabel(r.status,'project')}</button>`);
   openPanel(panelShell(state.lang==='ar'&&r.ar?r.ar:r.project,`${r.ref} · L03 Project Risk Assessment`,
     field(tt('status'),statusPill(r.status))+`<div class="row2">${field(tt('phase'),r.phase)}${field(tt('reqDate'),r.reqDate)}</div>`+
     field(tt('description'),r.desc)+field(tt('knownRisks'),r.known)+
@@ -1674,7 +1674,7 @@ function stageIdentifyHTML(r,rd){
   return `<div class="row2">${field(tt('riskTitle'),l==='ar'&&r.ar?r.ar:r.desc)}${field(tt('category'),catName(r.cat))}</div>
     ${field(tt('description'),desc)}
     <div class="row2">${field(tt('businessUnit'),buFor(r,module))}${field(tt('department'),module==='ent'?tt('enterpriseWide'):deptName(r.dept))}</div>
-    <div class="row2">${field(tt('riskType'),catName(r.cat))}${field(tt('riskSourceLbl'),l==='ar'?src.ar:src.en)}</div>
+    ${field(tt('riskSourceLbl'),l==='ar'?src.ar:src.en)}
     ${field(tt('strategicObj'),objFor(r,module))}
     <div class="row2">${field(tt('owner'),r.owner)}${field(tt('reporter'),reporterFor(r,module))}</div>`;
 }
@@ -1714,7 +1714,7 @@ function stageMonitorHTML(r,rd){
     <div class="row2">${field(tt('residual'),scoreChip(res.score,res.band)+' '+bandPill(res.band))}${field(tt('controlEffectiveness'),tt(ce))}</div>
     <div class="row2">${field(tt('reviewSchedule'),tt(reviewScheduleFor(r)))}${field(tt('riskTrend'),trendChip(riskTrendFor(r)))}</div>
     ${field(tt('progressTimeline'),`${done} ${tt('of')} ${items.length} — ${state.lang==='ar'?'راجع الجدول الزمني للمخاطرة أدناه':'see the risk timeline below'}`)}
-    ${field(tt('riskHistory'),state.lang==='ar'?'راجع سجل النشاط أدناه لكامل السجل التدقيقي.':'See the activity feed below for the full audit trail.')}`;
+    ${field(tt('riskHistory'),state.lang==='ar'?'راجع السجل التدقيقي أدناه للاطلاع على السجل الكامل.':'See the Audit Trail below for the complete record.')}`;
 }
 function stageCloseHTML(r,rd){
   const res=residualScoreOf(r,rd.stage);
@@ -1799,9 +1799,14 @@ function processFlowHTML(stageId,interactive){
       <div class="bpf-label">${state.lang==='ar'?s.ar:s.en}</div></div>`;
   });
   html+='</div>';
-  if(interactive)html+=`<div class="bpf-controls">
-    <button class="btn sm" data-act="stage-prev" ${curIdx===0?'disabled':''}>‹ ${tt('prevStage')}</button>
-    <button class="btn sm primary" data-act="stage-next" ${curIdx===4?'disabled':''}>${tt('nextStage')} ›</button></div>`;
+  if(interactive){
+    const prevS=STAGES[curIdx-1],nextS=STAGES[curIdx+1];
+    const prevLbl=prevS?': '+(state.lang==='ar'?prevS.ar:prevS.en):'';
+    const nextLbl=nextS?': '+(state.lang==='ar'?nextS.ar:nextS.en):'';
+    html+=`<div class="bpf-controls">
+      <button class="btn sm" data-act="stage-prev" ${curIdx===0?'disabled':''}>‹ ${tt('prevStage')}${prevLbl}</button>
+      <button class="btn sm primary" data-act="stage-next" ${curIdx===4?'disabled':''}>${tt('nextStage')}${nextLbl} ›</button></div>`;
+  }
   return html;
 }
 function progressSummaryHTML(r,rd,stageId){
@@ -1906,6 +1911,16 @@ function postComment(key){
 }
 
 /* ================= ACTIONS ================= */
+function advanceLabel(status,module){
+  const isProj=module==='project';
+  const map={
+    'Submitted':{en:'Begin Review',ar:'بدء المراجعة'},
+    'Under Review':isProj?{en:'Accept Assessment',ar:'قبول التقييم'}:{en:'Register Risk',ar:'تسجيل المخاطرة'},
+    'Accepted into Register':{en:'Close Record',ar:'إغلاق السجل'},
+  };
+  const m=map[status];
+  return m?m[state.lang]:tt('changeStatus');
+}
 function advanceSubStatus(module,ref){
   const list=module==='incidents'?L02:L01;const r=list.find(x=>x.ref===ref);if(!r)return;
   const flow=['Submitted','Under Review','Accepted into Register','Closed'];
@@ -1918,7 +1933,7 @@ function promoteToEnterprise(rec,srcType){
   const ref=`ENR-2026-${String(++SEQ.ENR).padStart(3,'0')}`;
   L05.unshift({ref,desc:rec.title||rec.desc,ar:rec.ar,cat:rec.cat,l:rec.l||3,i:rec.i||3,owner:persona().name,obj:'To be assigned',srcType,srcRef:rec.ref,mit:rec.mit||'Enterprise mitigation plan to be defined.',status:'Open',date:fmtDate(TODAY),due:shiftDate(TODAY,45),stage:'identify'});
   withScore(L05);
-  fireFlow('ENR-02','Promoted to Enterprise Register','ترقية للسجل المؤسسي',`${rec.ref} promoted → ${ref}, source link preserved.`,`${rec.ref} ← ترقية إلى ${ref} مع حفظ الرابط.`,'ok');
+  fireFlow('ENR-02','Escalated to Enterprise Register','تم التصعيد إلى السجل المؤسسي',`${rec.ref} escalated → ${ref}, source link preserved.`,`${rec.ref} ← تصعيد إلى ${ref} مع حفظ الرابط.`,'ok');
   closePanel();state.view='entrisk';render();
 }
 function runDailyScan(){
@@ -1947,7 +1962,7 @@ function openNotifMenu(){
     <span style="color:${n.kind==='crit'?'var(--danger)':n.kind==='ok'?'var(--good)':'var(--teal)'};margin-top:1px">${n.kind==='crit'?ic('alert'):n.kind==='ok'?ic('check'):ic('flow')}</span>
     <div><span class="flowid" style="font-family:var(--mono);color:var(--maroon);font-weight:700;font-size:10.5px">${n.flowId}</span>
     <b style="display:block;font-size:12.5px">${n.title[state.lang]}</b><span class="muted" style="font-size:11.5px">${n.body[state.lang]}</span></div></div>`).join(''):`<div class="empty-state" style="padding:24px">${ic('bell')}<div>${state.lang==='ar'?'لا إشعارات بعد':'No notifications yet'}</div></div>`;
-  m.innerHTML=`<div class="mh">${state.lang==='ar'?'الإشعارات — Power Automate':'Notifications — Power Automate'}</div>${items}`;
+  m.innerHTML=`<div class="mh">${state.lang==='ar'?'الإشعارات':'Notifications'}</div>${items}`;
   document.body.appendChild(m);
   m.style.top=(btn.bottom+8)+'px';
   if(state.lang==='ar'){m.style.left='16px';}else{m.style.right='16px';}
@@ -1969,9 +1984,9 @@ function openPresenter(){
     ['rep','oprisk','Aisha Al-Sulaiti','Risk Representative','Risk Representatives manage Operational Risks',
      'Aisha maintains the IT department register. She only ever sees IT’s rows — item-level permissions are set automatically by FLW-02.',
      '“Switch me to the IT Risk Rep and the register shrinks to just IT. A Finance rep would see only Finance. Same app, data-scoped by identity.”'],
-    ['rsk','entrisk','Fatima Al-Emadi','Risk Management','Risk Management promotes risks into the Enterprise Register',
-     'Fatima triages submissions, then promotes the significant ones — a link back to the source record is preserved on every enterprise entry.',
-     '“One click promotes an emerging risk or incident into the Enterprise Register, keeping full traceability to where it came from.”'],
+    ['rsk','entrisk','Fatima Al-Emadi','Risk Management','Risk Management escalates risks into the Enterprise Register',
+     'Fatima reviews submissions, then escalates the significant ones — a link back to the source record is preserved on every enterprise entry.',
+     '“One click escalates an emerging risk or incident into the Enterprise Register, keeping full traceability to where it came from.”'],
     ['ceo','dashExec','Mohammed Al-Thani','CEO','Executives monitor risks through Power BI dashboards',
      'The CEO opens the Executive KPI dashboard: totals, open vs. closed, the likelihood×impact heatmap, top risks, and the trend line.',
      '“Leadership gets a single, always-current view. Department Heads see only their own department through row-level security.”'],
@@ -2079,8 +2094,8 @@ function saveOp(){
   const ref=`ORR-${dept}-${String(++SEQ.ORR)}`;
   L04.unshift({ref,dept,desc:document.getElementById('f_desc').value,cat:document.getElementById('f_cat').value,cause:document.getElementById('f_cause').value||'—',l,i,score:s,band:b,owner:document.getElementById('f_owner').value||persona().name,mit:document.getElementById('f_mit').value||'To be defined.',due:document.getElementById('f_due').value,rl:Math.max(1,l-1),ri:i,rscore:Math.max(1,l-1)*i,rband:bandOf(Math.max(1,l-1)*i),status:'Open',date:fmtDate(TODAY)});
   closePanel();
-  fireFlow('FLW-02','Item-level permission assigned','إسناد صلاحية للعنصر',`${ref} — edit rights granted to the ${deptName(dept,'en')} Risk Representative.`,`${ref} — مُنحت صلاحية التعديل لممثل ${deptName(dept,'ar')}.`,'ok');
-  if(b==='Critical')fireFlow('FLW-03','Critical band escalation','تصعيد تصنيف حرج',`${ref} scored ${s} (Critical) — escalated to Risk Management.`,`${ref} بدرجة ${s} (حرج).`,'crit');
+  fireFlow('FLW-02','Operational Risk Added','تمت إضافة مخاطرة تشغيلية',`${ref} has been added to the register. ${deptName(dept,'en')} Risk Representatives can now maintain this record.`,`${ref} أُضيفت إلى السجل. يمكن الآن لممثلي مخاطر ${deptName(dept,'ar')} إدارة هذا السجل.`,'ok');
+  if(b==='Critical')fireFlow('FLW-03','Critical Risk Escalation','تصعيد مخاطرة حرجة',`${ref} scored ${s} (Critical) — escalated to Risk Management.`,`${ref} بدرجة ${s} (حرج) — تصعيد لإدارة المخاطر.`,'crit');
   state.view='oprisk';render();
 }
 
